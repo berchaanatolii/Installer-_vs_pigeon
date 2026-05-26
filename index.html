@@ -4,17 +4,878 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Монтажник Петро: Висота — не моє 🛠️🐦</title>
-    
+
     <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Vanilla CSS Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
 
-    <!-- Vite Entry Point -->
-    <script type="module" src="/src/main.js"></script>
+    <style>
+/* ==========================================================================
+   CSS DESIGN SYSTEM: Мicro-quest "Монтажник Петро"
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --bg-primary: #0a0f18;
+    --bg-secondary: #111723;
+    --glass-bg: rgba(17, 23, 35, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.07);
+
+    /* Neon Safety Warning Colors */
+    --safety-yellow: #ffd32d;
+    --safety-yellow-rgb: 255, 211, 45;
+    --danger-red: #ff3f34;
+    --danger-red-rgb: 255, 63, 52;
+    --pigeon-slate: #718093;
+    --pigeon-purple: #8e44ad;
+    --success-green: #05c46b;
+
+    /* Text colors */
+    --text-primary: #f5f6fa;
+    --text-muted: #a4b0be;
+
+    /* Fonts */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Layout Tokens */
+    --border-radius: 12px;
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-slow: 0.8s ease-in-out;
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Concrete-textured Noise Overlay using pure CSS */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.015;
+    pointer-events: none;
+    z-index: 999;
+    background-image: radial-gradient(circle, #fff 10%, transparent 11%),
+                      radial-gradient(circle, #000 10%, transparent 11%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+}
+
+/* ==========================================================================
+   APP CONTAINER LAYOUT
+   ========================================================================== */
+
+.app-container {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ==========================================================================
+   HEADER STYLE
+   ========================================================================== */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hazard-tape {
+    width: 12px;
+    height: 35px;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--safety-yellow),
+        var(--safety-yellow) 6px,
+        #111 6px,
+        #111 12px
+    );
+    border-radius: 4px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title .subtitle {
+    font-size: 0.85rem;
+    color: var(--safety-yellow);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Audio Toggle Button styling */
+.btn-audio {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-fast);
+}
+
+.btn-audio:hover {
+    background: rgba(var(--safety-yellow-rgb), 0.15);
+    border-color: var(--safety-yellow);
+    color: var(--safety-yellow);
+    box-shadow: 0 0 10px rgba(var(--safety-yellow-rgb), 0.2);
+}
+
+.btn-audio.active {
+    background: rgba(var(--success-green), 0.15);
+    border-color: var(--success-green);
+    color: var(--success-green);
+}
+
+/* ==========================================================================
+   MAIN DASHBOARD GRID
+   ========================================================================== */
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 1.5rem;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   SIDEBAR: STATS BOARD
+   ========================================================================== */
+
+.status-sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.badge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.badge-danger {
+    background: rgba(var(--danger-red-rgb), 0.2);
+    color: var(--danger-red);
+    border: 1px solid rgba(var(--danger-red-rgb), 0.3);
+}
+
+/* Petro Animated Avatar Card */
+.petro-avatar-container {
+    width: 100%;
+    height: 140px;
+    background: radial-gradient(circle, rgba(var(--safety-yellow-rgb), 0.05) 0%, rgba(0,0,0,0) 80%);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+}
+
+.avatar-glow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--safety-yellow-rgb), 0.15) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.petro-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fcdbb0;
+    border: 3px solid #d5b080;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 12px;
+}
+
+.petro-avatar:active {
+    transform: scale(0.92);
+}
+
+/* Avatar Elements */
+.helmet-top {
+    position: absolute;
+    top: -10px;
+    width: 72px;
+    height: 38px;
+    background: #ffffff;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    border: 3px solid #bdc3c7;
+    border-bottom: none;
+    box-shadow: inset -5px 0 0 rgba(0,0,0,0.05);
+}
+
+.helmet-top::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 10px;
+    height: 35px;
+    background: var(--danger-red);
+}
+
+.helmet-brim {
+    position: absolute;
+    top: 25px;
+    width: 82px;
+    height: 8px;
+    background: #ffffff;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+.avatar-eyes {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 2px;
+    user-select: none;
+}
+
+.avatar-eyes .eye {
+    font-size: 1.1rem;
+    animation: blink 4s infinite;
+}
+
+.avatar-mouth {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #000;
+    line-height: 1;
+}
+
+/* Status Label & Title Highlight */
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.status-value {
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+.title-highlight {
+    color: var(--safety-yellow);
+    text-shadow: 0 0 10px rgba(var(--safety-yellow-rgb), 0.3);
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+}
+
+/* PROGRESS METERS */
+.stat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 5px;
+    transition: width var(--transition-slow);
+}
+
+.bar-fear {
+    background: linear-gradient(90deg, #ff793f, var(--danger-red));
+    box-shadow: 0 0 10px rgba(var(--danger-red-rgb), 0.4);
+}
+
+.bar-respect {
+    background: linear-gradient(90deg, #81ecec, var(--pigeon-slate));
+    box-shadow: 0 0 10px rgba(113, 128, 147, 0.4);
+}
+
+/* Shaking progress bar when fear is too high */
+.bar-fear-spiked {
+    animation: progress-tremble 0.15s infinite alternate;
+}
+
+@keyframes progress-tremble {
+    0% { transform: translateY(-1px) scaleY(1.1); }
+    100% { transform: translateY(1px) scaleY(0.9); }
+}
+
+/* TIMELINE DECISION LOG */
+.log-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+    min-height: 120px;
+}
+
+.log-section h3 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.log-timeline {
+    border-left: 2px dashed rgba(255,255,255,0.15);
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 180px;
+    overflow-y: auto;
+    font-size: 0.8rem;
+}
+
+/* Timeline Custom Scrollbar */
+.log-timeline::-webkit-scrollbar {
+    width: 4px;
+}
+.log-timeline::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.log-item {
+    color: var(--text-muted);
+    position: relative;
+    line-height: 1.3;
+    animation: slideIn 0.3s ease-out;
+}
+
+.log-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1rem - 6px);
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--pigeon-slate);
+    border: 2px solid var(--bg-secondary);
+}
+
+.log-item.start-item::before {
+    background: var(--safety-yellow);
+}
+
+.log-item.choice-item::before {
+    background: var(--danger-red);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: MAIN VIEWPORT AREA
+   ========================================================================== */
+
+.game-viewport-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* SCENE GRAPHIC VIEWER */
+.scene-container {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.scene-frame {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 400px;
+    border-radius: 8px;
+    background: #0d121c;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.scene-graphic {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter var(--transition-slow);
+}
+
+/* Height stamp overlay */
+.height-indicator {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0,0,0,0.85);
+    border: 1px solid var(--safety-yellow);
+    color: var(--safety-yellow);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* ==========================================================================
+   STORY & CHOICES CONTROLS
+   ========================================================================== */
+
+.story-interface-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Warning hazard stripes on side faces of choice card */
+.story-interface-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--safety-yellow),
+        var(--safety-yellow) 15px,
+        #111 15px,
+        #111 30px
+    );
+}
+
+.card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.stage-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+.stage-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Dynamic Choices Grid */
+.choices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Pre-styled Choice Button */
+.choice-btn {
+    background: #192233;
+    border: 2px solid #28364f;
+    color: var(--text-primary);
+    padding: 1.1rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    line-height: 1.4;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn::before {
+    content: "➜";
+    margin-right: 12px;
+    color: var(--safety-yellow);
+    font-size: 1.1rem;
+    transition: transform var(--transition-fast);
+}
+
+.choice-btn:hover {
+    background: #202d44;
+    border-color: var(--safety-yellow);
+    box-shadow: 0 4px 15px rgba(var(--safety-yellow-rgb), 0.15);
+}
+
+.choice-btn:hover::before {
+    transform: translateX(4px);
+}
+
+.choice-btn:active {
+    transform: translateY(1px);
+}
+
+/* Restart screen styles */
+.restart-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    animation: fadeIn var(--transition-slow);
+}
+
+.btn-restart {
+    background: var(--safety-yellow);
+    color: #000;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(var(--safety-yellow-rgb), 0.3);
+}
+
+.btn-restart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(var(--safety-yellow-rgb), 0.45);
+}
+
+.final-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   APP FOOTER
+   ========================================================================== */
+
+.app-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+    padding: 1rem 0;
+}
+
+/* ==========================================================================
+   FEATHER FLOATING PARTICLES
+   ========================================================================== */
+
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.feather-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--text-muted);
+    opacity: 0.5;
+    border-radius: 100% 0 100% 100%;
+    transform-origin: center;
+    animation: feather-fall 10s linear infinite;
+}
+
+@keyframes feather-fall {
+    0% {
+        transform: translateY(-20px) rotate(0deg) translateX(0px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(105vh) rotate(360deg) translateX(120px);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   PHASE & MOTION TRANSITION STYLES
+   ========================================================================== */
+
+/* Shaking (Ground/Fear phase) */
+[data-motion="shaking"] .scene-frame {
+    animation: camera-shake 0.25s infinite alternate;
+}
+
+@keyframes camera-shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    20% { transform: translate(-1px, -1px) rotate(-0.5deg); }
+    40% { transform: translate(-2px, 0px) rotate(0.5deg); }
+    60% { transform: translate(1px, 1px) rotate(0deg); }
+    80% { transform: translate(-1px, 1px) rotate(-0.5deg); }
+    100% { transform: translate(1px, -1px) rotate(0.5deg); }
+}
+
+/* Vertically shifting (Ladder Phase) */
+[data-motion="parallax"] .scene-frame::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: -50%;
+    left: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.01) 0px,
+        rgba(255,255,255,0.01) 20px,
+        transparent 20px,
+        transparent 40px
+    );
+    animation: parallax-scroll 8s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes parallax-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50%); }
+}
+
+/* Swaying wind (Midair Phase) */
+[data-motion="wind"] .scene-frame {
+    animation: wind-sway 3s ease-in-out infinite alternate;
+}
+
+@keyframes wind-sway {
+    0% { transform: rotate(-1deg) skewX(-1deg); }
+    100% { transform: rotate(1deg) skewX(1deg); }
+}
+
+/* Falling fast (Jump/Flowerbed transition) */
+[data-motion="falling-rapid"] .scene-frame {
+    animation: camera-shake 0.08s infinite, speed-blur 0.3s infinite;
+}
+
+@keyframes speed-blur {
+    0% { filter: blur(0px); }
+    50% { filter: blur(2px) brightness(1.2); }
+    100% { filter: blur(0px); }
+}
+
+/* Petro Shakes Avatar based on fear */
+[data-fear-level="high"] .petro-avatar {
+    animation: camera-shake 0.15s infinite;
+    background: #ffa8a8;
+    border-color: var(--danger-red);
+}
+
+[data-fear-level="critical"] .petro-avatar {
+    animation: camera-shake 0.08s infinite;
+    background: #ff5252;
+    border-color: #d63031;
+}
+
+[data-fear-level="critical"] .petro-avatar .avatar-eyes .eye {
+    font-size: 1.25rem;
+    animation: eye-wobble 0.2s infinite;
+}
+
+@keyframes eye-wobble {
+    0% { transform: scale(1.1); }
+    100% { transform: scale(0.9); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (RESPONSIVE GRID)
+   ========================================================================== */
+
+@media (max-width: 860px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .status-sidebar {
+        height: auto;
+    }
+
+    .choices-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-container {
+        padding: 0.75rem;
+        gap: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+    </style>
 </head>
 <body data-phase="ground" data-motion="shaking">
 
@@ -22,7 +883,7 @@
     <div id="particles-container" class="particles-container"></div>
 
     <div class="app-container">
-        
+
         <!-- HEADER -->
         <header class="main-header">
             <div class="logo-area">
@@ -38,7 +899,7 @@
 
         <!-- MAIN LAYOUT -->
         <div class="main-layout">
-            
+
             <!-- LEFT SIDEBAR: STATUS BOARD -->
             <aside class="status-sidebar">
                 <div class="sidebar-card">
@@ -47,7 +908,7 @@
                         <span class="badge badge-danger">ЖИВИЙ</span>
                     </div>
 
-                    <!-- Petro's interactive avatar (Click 3 times for secret) -->
+                    <!-- Petro's interactive avatar -->
                     <div class="petro-avatar-container">
                         <div id="petro-avatar" class="petro-avatar" title="Клацни по касці 3 рази для пасхалки!">
                             <div class="helmet-top"></div>
@@ -105,11 +966,14 @@
 
             <!-- RIGHT SECTION: CENTRAL VIEWPORT & OPTIONS -->
             <main class="game-viewport-area">
-                
+
                 <!-- SCENE POSTER CONTAINER -->
                 <section class="scene-container">
                     <div class="scene-frame">
-                        <img id="scene-image" src="assets/petro_ground.svg" alt="Петро на землі" class="scene-graphic">
+                        <div style="text-align: center; padding: 20px;">
+                            [Простір для сцени]<br>
+                            <small>(SVG буде завантажено або замінено)</small>
+                        </div>
                         <div class="height-indicator">Рівень: <span id="current-height">3м</span></div>
                     </div>
                 </section>
@@ -119,7 +983,7 @@
                     <div class="card-inner">
                         <h2 id="stage-title" class="stage-title">Заголовок завантажується...</h2>
                         <p id="stage-text" class="stage-description">Текст історії завантажується...</p>
-                        
+
                         <!-- CHOICES CONTAINER -->
                         <div id="choices-container" class="choices-grid">
                             <button class="choice-btn" data-choice="A">Вибір А</button>
@@ -144,5 +1008,665 @@
 
     </div>
 
+    <script>
+/* ==========================================================================
+   GAME ENGINE & SYNTHESIZER: «Монтажник Петро»
+   ========================================================================== */
+
+// 1. STATE VARIABLES
+const gameState = {
+    fear: 20,
+    respect: 10,
+    title: "Звичайний монтажник",
+    currentStage: "stage_0",
+    choicesLog: ["Прибув на об'єкт (3м)."],
+    helmetClicks: 0,
+    clickTimer: null,
+    isAudioActive: false,
+    audioCtx: null
+};
+
+// 2. WEB AUDIO SYNTHESIZER
+const PigeonAudio = {
+    init() {
+        if (!gameState.audioCtx) {
+            gameState.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (gameState.audioCtx.state === 'suspended') {
+            gameState.audioCtx.resume();
+        }
+    },
+
+    playClick() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const osc = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(600, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.08);
+
+        gainNode.gain.setValueAtTime(0.15, ctx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.08);
+
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 0.08);
+    },
+
+    playCoo() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const now = ctx.currentTime;
+
+        const playSubCoo = (delay, duration, pitch) => {
+            const osc = ctx.createOscillator();
+            const oscMod = ctx.createOscillator();
+            const modGain = ctx.createGain();
+            const gainNode = ctx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(pitch, now + delay);
+            osc.frequency.exponentialRampToValueAtTime(pitch - 30, now + delay + duration);
+
+            oscMod.type = 'sine';
+            oscMod.frequency.setValueAtTime(18, now + delay);
+            modGain.gain.setValueAtTime(12, now + delay);
+
+            gainNode.gain.setValueAtTime(0.0, now + delay);
+            gainNode.gain.linearRampToValueAtTime(0.25, now + delay + 0.05);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, now + delay + duration);
+
+            oscMod.connect(modGain);
+            modGain.connect(osc.frequency);
+
+            osc.connect(gainNode);
+            gainNode.connect(ctx.destination);
+
+            oscMod.start(now + delay);
+            osc.start(now + delay);
+
+            oscMod.stop(now + delay + duration);
+            osc.stop(now + delay + duration);
+        };
+
+        playSubCoo(0, 0.22, 290);
+        playSubCoo(0.28, 0.45, 270);
+    },
+
+    playDrill() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const LFO = ctx.createOscillator();
+        const lfoGain = ctx.createGain();
+        const filter = ctx.createBiquadFilter();
+        const gainNode = ctx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(110, now);
+        osc.frequency.linearRampToValueAtTime(145, now + 0.2);
+        osc.frequency.linearRampToValueAtTime(135, now + 0.6);
+
+        LFO.type = 'sine';
+        LFO.frequency.setValueAtTime(45, now);
+        lfoGain.gain.setValueAtTime(18, now);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(500, now);
+
+        gainNode.gain.setValueAtTime(0.0, now);
+        gainNode.gain.linearRampToValueAtTime(0.18, now + 0.05);
+        gainNode.gain.linearRampToValueAtTime(0.15, now + 0.5);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
+
+        LFO.connect(lfoGain);
+        lfoGain.connect(osc.frequency);
+
+        osc.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        LFO.start(now);
+        osc.start(now);
+
+        LFO.stop(now + 0.7);
+        osc.stop(now + 0.7);
+    },
+
+    playFearScream() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(400, now);
+        osc.frequency.exponentialRampToValueAtTime(80, now + 0.8);
+
+        gainNode.gain.setValueAtTime(0.2, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(now + 0.8);
+    },
+
+    playDzing() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(988, now);
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(1318, now);
+
+        gainNode.gain.setValueAtTime(0.25, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+
+        osc.connect(gainNode);
+        osc2.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        osc.start();
+        osc2.start();
+        osc.stop(now + 0.6);
+        osc2.stop(now + 0.6);
+    },
+
+    playSplash() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const now = ctx.currentTime;
+
+        const bufferSize = ctx.sampleRate * 1.0;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+        }
+
+        const noiseNode = ctx.createBufferSource();
+        noiseNode.buffer = buffer;
+
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(140, now);
+        filter.frequency.exponentialRampToValueAtTime(20, now + 0.8);
+
+        const gainNode = ctx.createGain();
+        gainNode.gain.setValueAtTime(0.4, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+        noiseNode.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        noiseNode.start(now);
+        noiseNode.stop(now + 0.8);
+    },
+
+    playFanfare() {
+        if (!gameState.isAudioActive) return;
+        this.init();
+        const ctx = gameState.audioCtx;
+        const now = ctx.currentTime;
+
+        const notes = [
+            { note: 261.63, time: 0, dur: 0.15 },
+            { note: 329.63, time: 0.15, dur: 0.15 },
+            { note: 392.00, time: 0.30, dur: 0.15 },
+            { note: 523.25, time: 0.45, dur: 0.5 }
+        ];
+
+        notes.forEach((item) => {
+            const osc = ctx.createOscillator();
+            const gainNode = ctx.createGain();
+
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(item.note, now + item.time);
+
+            gainNode.gain.setValueAtTime(0.12, now + item.time);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, now + item.time + item.dur);
+
+            osc.connect(gainNode);
+            gainNode.connect(ctx.destination);
+
+            osc.start(now + item.time);
+            osc.stop(now + item.time + item.dur);
+        });
+    }
+};
+
+// 3. STAGES MAP
+const stages = {
+    stage_0: {
+        title: "Виклик прийнято. Висота — 3 метри.",
+        text: "Петро, 34 роки, монтажник кондиціонерів. Отримав замовлення на 5-й поверх. У руках дриль, у серці — страх, гірший, ніж у голуба, якому наснився пилосос.",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "3м",
+        motion: "shaking",
+        fear: 20,
+        respect: 10,
+        options: [
+            { text: "Піти на драбину 🪜", next: "stage_1A", log: "Вирішив лізти на драбину сам.", sound: "drill" },
+            { text: "Викликати голуба-наставника 🐦", next: "stage_1B", log: "Покликав голуба Валєру на допомогу.", sound: "coo" }
+        ]
+    },
+
+    stage_1A: {
+        title: "Ноги тремтять. Дриль вібрує в такт.",
+        text: "Ви ставите ногу на першу сходинку. Внизу голуби регочуть. Один кричить: «Я на карнизі 9-го поверху сиджу, а ти на табуретку боїшся!»",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "4м",
+        motion: "parallax",
+        fear: 40,
+        respect: 30,
+        options: [
+            { text: "Зробити вигляд, що перевіряєш інструмент 🛠️", next: "stage_2A", log: "Удав, що лагодить дриль, щоб не лізти.", sound: "drill" },
+            { text: "Крикнути: «У тебе крила, а в мене іпотека!» 🏦", next: "stage_2B", log: "Вступив у філософський діалог з голубами.", sound: "fear" }
+        ]
+    },
+
+    stage_1B: {
+        title: "Гуля, поясни за висоту.",
+        text: "Прилітає сизий голуб на ім'я Валєра. Каже: «Слухай, синку, висота — це ілюзія. Я сто разів падав, і нічого. Просто розслаб гузно.»",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "3м",
+        motion: "shaking",
+        fear: 25,
+        respect: 50,
+        options: [
+            { text: "Повірити Валєрі і полізти 🪜", next: "stage_2A", log: "Натхненний Валєрою, Петро поліз вгору.", sound: "coo" },
+            { text: "Запитати про техніку безпеки 📋", next: "stage_2B", log: "Вирішив вивчити пташиний кодекс безпеки.", sound: "click" }
+        ]
+    },
+
+    stage_2A: {
+        title: "Другий поверх. Вище тільки зорі.",
+        text: "Ви майже на висоті голубиного польоту. Але раптом повз пролітає муха — і ви усвідомлюєте всю крихкість буття. Голуби навколо жують попкорн у 3D-окулярах.",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "6м",
+        motion: "wind",
+        fear: 75,
+        respect: 40,
+        options: [
+            { text: "Продовжити, стиснувши зуби 🥶", next: "stage_3A", log: "Мужньо продовжив підйом крізь страх.", sound: "fear" },
+            { text: "Спуститись і втекти в газон 🏃‍♂️", next: "stage_3B", log: "Зробив тактичний відступ ближче до землі.", sound: "splash" }
+        ]
+    },
+
+    stage_2B: {
+        title: "Правило Валєри: «Цілуй м'яке».",
+        text: "Голуб пояснює: страх долається простим правилом — завжди цілься в м'яке при падінні. Петро починає креслити на асфальті параболи і траєкторії.",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "3м",
+        motion: "shaking",
+        fear: 50,
+        respect: 65,
+        options: [
+            { text: "Застосувати метод планування (скинути дриль) ☄️", next: "stage_3A", log: "Скинув дриль для тесту сили тяжіння.", sound: "drill" },
+            { text: "Закрити наряд і піти пити чай в офіс ☕", next: "stage_3B", log: "Вирішив, що чай безпечніший за кондиціонери.", sound: "click" }
+        ]
+    },
+
+    stage_3A: {
+        title: "5-й поверх. Кронштейн майже прикручений.",
+        text: "Ви на фінішній прямій. Голуби замовкли від поваги. Але раптом вітер доносить запах свіжого хліба з кіоску, Валєра відволікається на хлібчик... а ви зависаєте над прірвою!",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "15м",
+        motion: "wind",
+        fear: 95,
+        respect: 50,
+        options: [
+            { text: "Закрутити останній болт із заплющеними очима 🔩", next: "final_hero", log: "Героїчно прикрутив болт наосліп!", sound: "dzing" },
+            { text: "Стрибнути в клумбу (метод Валєри) 🌳", next: "final_flowerbed", log: "Вирішив перевірити теорію м'якої клумби.", sound: "splash" }
+        ]
+    },
+
+    stage_3B: {
+        title: "Земля кличе! Геть висотні муки.",
+        text: "Ви розумієте, що життя дорожче за кондиціонер на верхотурі. Душа проситься на надійний асфальт. Валєра супроводжує вас вниз.",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "3м",
+        motion: "shaking",
+        fear: 30,
+        respect: 20,
+        options: [
+            { text: "Стрибнути в клумбу для гарантії м'якості 🌸", next: "final_flowerbed", log: "М'яко приземлився в квіти.", sound: "splash" },
+            { text: "Створити горизонтальну фірму 🤝", next: "final_flowerbed", log: "Заснував новий безпечний бізнес.", sound: "dzing" }
+        ]
+    },
+
+    final_hero: {
+        title: "Ви це зробили! Кондиціонер встановлено! 🎉",
+        text: "Петро відкриває очи. Він на висоті 15 метрів, але йому більше не страшно! Голуби аплодують крилами. Валєра кричить: «Ну ти й відчайдух! Тепер ти справжній монтажник-голуб!» Петро отримує звання «Почесний птах» і відкриває нові вершини!",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "15м",
+        motion: "wind",
+        fear: 10,
+        respect: 95,
+        options: [],
+        sound: "fanfare"
+    },
+
+    final_flowerbed: {
+        title: "Політ Валєри. Або Петро — горизонтальний геній! 🌺",
+        text: "Петро здійснює м'який стрибок у клумбу! Приземлення ідеальне, але дриль розлітається на друзки. Голуби в шоці. Петро відкриває компанію «Монтаж на першому поверсі». Його девіз: «Вище плінтуса — не моє». Клієнти задоволені!",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "1м",
+        motion: "shaking",
+        fear: 0,
+        respect: 45,
+        options: [],
+        sound: "splash"
+    },
+
+    secret_pigeonman: {
+        title: "Секрет: Голуб всередині Петра прокинувся! 🕊️✨",
+        text: "Виявляється, у минулому житті Петро був сизим голубом і літав над цим будинком! Після трьох кліків по касці він згадав своє коріння! У Петра виросли величні сірі крила, він пернатий і більше ніколи не боїться висоти!",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        height: "12м",
+        motion: "wind",
+        fear: 0,
+        respect: 100,
+        options: [],
+        sound: "fanfare"
+    }
+};
+
+// 4. CORE ENGINE FUNCTIONS
+
+function renderStage(stageKey) {
+    const stage = stages[stageKey];
+    if (!stage) return;
+
+    gameState.currentStage = stageKey;
+
+    document.getElementById("stage-title").innerText = stage.title;
+    document.getElementById("stage-text").innerText = stage.text;
+    document.getElementById("current-height").innerText = stage.height;
+
+    document.body.setAttribute("data-phase", stageKey.includes("final") ? "final" : stageKey.split("_")[1] || "ground");
+    document.body.setAttribute("data-motion", stage.motion);
+
+    updateStats(stage.fear, stage.respect);
+
+    const choicesContainer = document.getElementById("choices-container");
+    const restartPanel = document.getElementById("restart-panel");
+
+    choicesContainer.innerHTML = "";
+
+    if (stage.options && stage.options.length > 0) {
+        restartPanel.classList.add("hidden");
+        choicesContainer.classList.remove("hidden");
+
+        stage.options.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.className = "choice-btn";
+            btn.innerText = opt.text;
+            btn.addEventListener("click", () => makeChoice(opt));
+            choicesContainer.appendChild(btn);
+        });
+    } else {
+        choicesContainer.classList.add("hidden");
+        restartPanel.classList.remove("hidden");
+
+        if (stageKey === "final_hero" || stageKey === "secret_pigeonman") {
+            PigeonAudio.playFanfare();
+            triggerFeatherBlast(40);
+        } else if (stageKey === "final_flowerbed") {
+            PigeonAudio.playSplash();
+        }
+    }
+}
+
+function makeChoice(option) {
+    PigeonAudio.playClick();
+
+    setTimeout(() => {
+        if (option.sound === "coo") {
+            PigeonAudio.playCoo();
+        } else if (option.sound === "drill") {
+            PigeonAudio.playDrill();
+        } else if (option.sound === "fear") {
+            PigeonAudio.playFearScream();
+        } else if (option.sound === "dzing") {
+            PigeonAudio.playDzing();
+        } else if (option.sound === "splash") {
+            PigeonAudio.playSplash();
+        }
+    }, 120);
+
+    gameState.choicesLog.push(option.log);
+    updateDecisionLog(option.log);
+
+    renderStage(option.next);
+}
+
+function updateStats(targetFear, targetRespect) {
+    gameState.fear = targetFear;
+    gameState.respect = targetRespect;
+
+    document.getElementById("fear-percentage").innerText = `${gameState.fear}%`;
+    document.getElementById("respect-percentage").innerText = `${gameState.respect}%`;
+
+    const fearBar = document.getElementById("fear-progress");
+    const respectBar = document.getElementById("respect-progress");
+
+    fearBar.style.width = `${gameState.fear}%`;
+    respectBar.style.width = `${gameState.respect}%`;
+
+    if (gameState.fear >= 75) {
+        fearBar.classList.add("bar-fear-spiked");
+        document.body.setAttribute("data-fear-level", gameState.fear >= 90 ? "critical" : "high");
+    } else {
+        fearBar.classList.remove("bar-fear-spiked");
+        document.body.removeAttribute("data-fear-level");
+    }
+
+    generatePetroTitle();
+}
+
+function generatePetroTitle() {
+    let title = "Звичайний монтажник 🛠️";
+
+    if (gameState.currentStage === "secret_pigeonman") {
+        title = "Людина-Голуб 🕊️👑";
+    } else if (gameState.currentStage === "final_hero") {
+        title = "Почесний Птах 👑🔩";
+    } else if (gameState.currentStage === "final_flowerbed") {
+        title = "Горизонтальний Геній 🌸";
+    } else if (gameState.respect >= 80 && gameState.fear <= 30) {
+        title = "Пташиний Генерал 🎖️";
+    } else if (gameState.respect >= 50) {
+        title = "Учень Валєри 🎓";
+    } else if (gameState.fear >= 85) {
+        title = "Тремтяча Драбина 😰";
+    } else if (gameState.respect <= 25 && gameState.fear <= 25) {
+        title = "Ґрунтовий Майстер 🚜";
+    }
+
+    gameState.title = title;
+    document.getElementById("petro-title").innerText = title;
+}
+
+function updateDecisionLog(text) {
+    const logBox = document.getElementById("decision-log");
+    const newItem = document.createElement("div");
+    newItem.className = "log-item choice-item";
+    newItem.innerText = text;
+    logBox.appendChild(newItem);
+
+    logBox.scrollTop = logBox.scrollHeight;
+}
+
+function restartGame() {
+    PigeonAudio.playClick();
+
+    gameState.fear = 20;
+    gameState.respect = 10;
+    gameState.choicesLog = ["Прибув на об'єкт (3м)."];
+
+    const logBox = document.getElementById("decision-log");
+    logBox.innerHTML = '<div class="log-item start-item">Прибув на об\'єкт (3м).</div>';
+
+    renderStage("stage_0");
+}
+
+// 5. FEATHER PARTICLES
+function triggerFeatherBlast(count) {
+    for (let i = 0; i < count; i++) {
+        setTimeout(spawnFeather, Math.random() * 800);
+    }
+}
+
+function spawnFeather() {
+    const container = document.getElementById("particles-container");
+    if (!container) return;
+
+    const feather = document.createElement("div");
+    feather.className = "feather-particle";
+
+    const startX = Math.random() * window.innerWidth;
+    const size = 6 + Math.random() * 12;
+    const driftX = -40 + Math.random() * 80;
+    const duration = 6 + Math.random() * 6;
+
+    feather.style.left = `${startX}px`;
+    feather.style.width = `${size}px`;
+    feather.style.height = `${size * 1.5}px`;
+
+    const colorChance = Math.random();
+    if (colorChance < 0.5) {
+        feather.style.backgroundColor = "rgba(113, 128, 147, 0.4)";
+    } else if (colorChance < 0.8) {
+        feather.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
+    } else {
+        feather.style.backgroundColor = "rgba(142, 68, 173, 0.35)";
+    }
+
+    feather.style.animation = `feather-fall ${duration}s linear forwards`;
+
+    container.appendChild(feather);
+
+    setTimeout(() => {
+        feather.remove();
+    }, duration * 1000);
+}
+
+setInterval(() => {
+    if (gameState.currentStage === "final_hero" || gameState.currentStage === "secret_pigeonman") {
+        spawnFeather();
+    }
+}, 800);
+
+// 6. EASTER EGG
+function handleHelmetClick() {
+    clearTimeout(gameState.clickTimer);
+
+    gameState.helmetClicks++;
+
+    if (gameState.helmetClicks < 3) {
+        PigeonAudio.playClick();
+        PigeonAudio.playCoo();
+
+        const avatar = document.getElementById("petro-avatar");
+        avatar.style.transform = "scale(0.85) rotate(-10deg)";
+        setTimeout(() => {
+            avatar.style.transform = "";
+        }, 150);
+    }
+
+    if (gameState.helmetClicks >= 3) {
+        triggerPigeonmanSecret();
+    } else {
+        gameState.clickTimer = setTimeout(() => {
+            gameState.helmetClicks = 0;
+        }, 2500);
+    }
+}
+
+function triggerPigeonmanSecret() {
+    gameState.helmetClicks = 0;
+
+    PigeonAudio.playFearScream();
+    setTimeout(() => {
+        PigeonAudio.playCoo();
+    }, 400);
+
+    document.body.setAttribute("data-motion", "falling-rapid");
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "#fff";
+    overlay.style.zIndex = "9999";
+    overlay.style.transition = "opacity 0.8s ease";
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+            overlay.remove();
+        }, 800);
+    }, 100);
+
+    gameState.choicesLog.push("О ДИВО! Петро згадав минуле життя і випустив голуба всередину!");
+    updateDecisionLog("ВІДКРИТО ТАЄМНИЦЮ: Петро згадав крила!");
+
+    renderStage("secret_pigeonman");
+}
+
+// 7. INITIALIZATION
+document.addEventListener("DOMContentLoaded", () => {
+    renderStage("stage_0");
+
+    const audioBtn = document.getElementById("audio-toggle");
+    audioBtn.addEventListener("click", () => {
+        gameState.isAudioActive = !gameState.isAudioActive;
+
+        if (gameState.isAudioActive) {
+            audioBtn.classList.add("active");
+            audioBtn.innerHTML = '<span class="audio-icon">🔊</span> Звук увімк.';
+            PigeonAudio.init();
+            PigeonAudio.playClick();
+            PigeonAudio.playCoo();
+        } else {
+            audioBtn.classList.remove("active");
+            audioBtn.innerHTML = '<span class="audio-icon">🔇</span> Без звуку';
+        }
+    });
+
+    const avatar = document.getElementById("petro-avatar");
+    avatar.addEventListener("click", handleHelmetClick);
+
+    const restartBtn = document.getElementById("restart-btn");
+    restartBtn.addEventListener("click", restartGame);
+});
+    </script>
 </body>
 </html>
