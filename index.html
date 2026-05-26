@@ -970,10 +970,7 @@ body::before {
                 <!-- SCENE POSTER CONTAINER -->
                 <section class="scene-container">
                     <div class="scene-frame">
-                        <div style="text-align: center; padding: 20px;">
-                            [Простір для сцени]<br>
-                            <small>(SVG буде завантажено або замінено)</small>
-                        </div>
+                        <img id="scene-image" style="width: 100%; height: 100%; object-fit: contain;" alt="Сцена"/>
                         <div class="height-indicator">Рівень: <span id="current-height">3м</span></div>
                     </div>
                 </section>
@@ -1263,7 +1260,7 @@ const stages = {
     stage_0: {
         title: "Виклик прийнято. Висота — 3 метри.",
         text: "Петро, 34 роки, монтажник кондиціонерів. Отримав замовлення на 5-й поверх. У руках дриль, у серці — страх, гірший, ніж у голуба, якому наснився пилосос.",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3Cellipse cx='200' cy='250' rx='150' ry='30' fill='%23228B22'/%3E%3Crect x='50' y='100' width='100' height='180' fill='%238B4513'/%3E%3Crect x='250' y='120' width='100' height='160' fill='%23A0522D'/%3E%3Ccircle cx='100' cy='80' r='20' fill='%23FFA500'/%3E%3Ccircle cx='120' cy='75' r='15' fill='%23FFD700'/%3E%3Ccircle cx='300' cy='90' r='18' fill='%23FFA500'/%3E%3Cpath d='M 180 200 L 190 230 L 170 230 Z' fill='%23FF6347'/%3E%3Ctext x='200' y='280' font-size='16' text-anchor='middle' fill='%23333'%3E3 метри%3C/text%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "3м",
         motion: "shaking",
         fear: 20,
@@ -1277,7 +1274,7 @@ const stages = {
     stage_1A: {
         title: "Ноги тремтять. Дриль вібрує в такт.",
         text: "Ви ставите ногу на першу сходинку. Внизу голуби регочуть. Один кричить: «Я на карнизі 9-го поверху сиджу, а ти на табуретку боїшся!»",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "4м",
         motion: "parallax",
         fear: 40,
@@ -1291,7 +1288,7 @@ const stages = {
     stage_1B: {
         title: "Гуля, поясни за висоту.",
         text: "Прилітає сизий голуб на ім'я Валєра. Каже: «Слухай, синку, висота — це ілюзія. Я сто разів падав, і нічого. Просто розслаб гузно.»",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "3м",
         motion: "shaking",
         fear: 25,
@@ -1305,7 +1302,7 @@ const stages = {
     stage_2A: {
         title: "Другий поверх. Вище тільки зорі.",
         text: "Ви майже на висоті голубиного польоту. Але раптом повз пролітає муха — і ви усвідомлюєте всю крихкість буття. Голуби навколо жують попкорн у 3D-окулярах.",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "6м",
         motion: "wind",
         fear: 75,
@@ -1319,7 +1316,7 @@ const stages = {
     stage_2B: {
         title: "Правило Валєри: «Цілуй м'яке».",
         text: "Голуб пояснює: страх долається простим правилом — завжди цілься в м'яке при падінні. Петро починає креслити на асфальті параболи і траєкторії.",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "3м",
         motion: "shaking",
         fear: 50,
@@ -1333,7 +1330,7 @@ const stages = {
     stage_3A: {
         title: "5-й поверх. Кронштейн майже прикручений.",
         text: "Ви на фінішній прямій. Голуби замовкли від поваги. Але раптом вітер доносить запах свіжого хліба з кіоску, Валєра відволікається на хлібчик... а ви зависаєте над прірвою!",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "15м",
         motion: "wind",
         fear: 95,
@@ -1347,7 +1344,7 @@ const stages = {
     stage_3B: {
         title: "Земля кличе! Геть висотні муки.",
         text: "Ви розумієте, що життя дорожче за кондиціонер на верхотурі. Душа проситься на надійний асфальт. Валєра супроводжує вас вниз.",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "3м",
         motion: "shaking",
         fear: 30,
@@ -1361,7 +1358,7 @@ const stages = {
     final_hero: {
         title: "Ви це зробили! Кондиціонер встановлено! 🎉",
         text: "Петро відкриває очи. Він на висоті 15 метрів, але йому більше не страшно! Голуби аплодують крилами. Валєра кричить: «Ну ти й відчайдух! Тепер ти справжній монтажник-голуб!» Петро отримує звання «Почесний птах» і відкриває нові вершини!",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "15м",
         motion: "wind",
         fear: 10,
@@ -1373,7 +1370,7 @@ const stages = {
     final_flowerbed: {
         title: "Політ Валєри. Або Петро — горизонтальний геній! 🌺",
         text: "Петро здійснює м'який стрибок у клумбу! Приземлення ідеальне, але дриль розлітається на друзки. Голуби в шоці. Петро відкриває компанію «Монтаж на першому поверсі». Його девіз: «Вище плінтуса — не моє». Клієнти задоволені!",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "1м",
         motion: "shaking",
         fear: 0,
@@ -1385,7 +1382,7 @@ const stages = {
     secret_pigeonman: {
         title: "Секрет: Голуб всередині Петра прокинувся! 🕊️✨",
         text: "Виявляється, у минулому житті Петро був сизим голубом і літав над цим будинком! Після трьох кліків по касці він згадав своє коріння! У Петра виросли величні сірі крила, він пернатий і більше ніколи не боїться висоти!",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2387ceeb' width='400' height='300'/%3E%3C/svg%3E",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill="%23000" width="400" height="300"/%3E%3Ctext x="200" y="150" font-size="50" text-anchor="middle" fill="white"%3E🏗️%3C/text%3E%3C/svg%3E",
         height: "12м",
         motion: "wind",
         fear: 0,
@@ -1406,6 +1403,11 @@ function renderStage(stageKey) {
     document.getElementById("stage-title").innerText = stage.title;
     document.getElementById("stage-text").innerText = stage.text;
     document.getElementById("current-height").innerText = stage.height;
+
+    // Set scene image
+    const imgEl = document.getElementById("scene-image");
+    imgEl.src = stage.image;
+    imgEl.alt = stage.title;
 
     document.body.setAttribute("data-phase", stageKey.includes("final") ? "final" : stageKey.split("_")[1] || "ground");
     document.body.setAttribute("data-motion", stage.motion);
