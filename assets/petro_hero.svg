@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sunsetSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fd79a8" />
+      <stop offset="40%" stop-color="#e17055" />
+      <stop offset="70%" stop-color="#ffb142" />
+      <stop offset="100%" stop-color="#ffeaa7" />
+    </linearGradient>
+    <linearGradient id="goldDrill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffeaa7" />
+      <stop offset="50%" stop-color="#fdcb6e" />
+      <stop offset="100%" stop-color="#e17055" />
+    </linearGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Sunset Sky -->
+  <rect width="600" height="450" fill="url(#sunsetSky)" />
+
+  <!-- Sun -->
+  <circle cx="300" cy="280" r="100" fill="#fff" opacity="0.3" filter="url(#glow)" />
+  <circle cx="300" cy="280" r="70" fill="#ffeaa7" opacity="0.5" />
+
+  <!-- Clouds at sunset -->
+  <path d="M 50,220 C 100,210 130,220 150,230 C 180,220 220,230 230,250 C 200,270 100,270 50,260 Z" fill="#fd79a8" opacity="0.4" filter="url(#glow)" />
+  <path d="M 400,180 C 430,170 470,170 490,185 C 520,175 550,185 560,200 C 530,220 440,220 400,200 Z" fill="#fd79a8" opacity="0.4" filter="url(#glow)" />
+
+  <!-- Rooftop silhouette -->
+  <path d="M 0,340 L 150,340 L 180,310 L 420,310 L 450,340 L 600,340 L 600,450 L 0,450 Z" fill="#2d3436" />
+  <!-- Rooftop details (railings & pipes) -->
+  <line x1="0" y1="333" x2="600" y2="333" stroke="#1e272e" stroke-width="4" />
+  <line x1="180" y1="305" x2="420" y2="305" stroke="#1e272e" stroke-width="4" />
+  <!-- TV Antenna -->
+  <path d="M 50,260 L 50,340 M 35,280 L 65,280 M 40,300 L 60,300" stroke="#2d3436" stroke-width="3" />
+  
+  <!-- Installed AC Unit in background, perfectly fitted! -->
+  <g transform="translate(240, 240) scale(0.65)" opacity="0.9">
+    <rect x="0" y="0" width="120" height="80" rx="5" fill="#f5f6fa" stroke="#dcdde1" stroke-width="3" />
+    <circle cx="40" cy="40" r="28" fill="#dcdde1" />
+    <circle cx="40" cy="40" r="5" fill="#2f3640" />
+    <!-- Happy green light showing working status -->
+    <circle cx="105" cy="15" r="4" fill="#4cd137" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- PETRO: Standing heroically -->
+  <g transform="translate(190, 100)">
+    <!-- Shadow -->
+    <ellipse cx="60" cy="215" rx="45" ry="8" fill="#000" opacity="0.6" />
+
+    <!-- Cape (Safety vest blowing in the wind behind him) -->
+    <path d="M 25,75 C -30,90 -60,60 -80,110 C -50,150 10,135 15,120 Z" fill="url(#vestGrad)" stroke="#d4af37" stroke-width="2" opacity="0.95" />
+    <path d="M -80,110 L -60,105" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+
+    <!-- Legs apart, strong stance -->
+    <!-- Left Leg -->
+    <path d="M 35,130 L 20,210" stroke="#1a2d42" stroke-width="14" stroke-linecap="round" fill="none" />
+    <!-- Right Leg -->
+    <path d="M 85,130 L 100,210" stroke="#1a2d42" stroke-width="14" stroke-linecap="round" fill="none" />
+    <!-- Boots -->
+    <rect x="8" y="202" width="24" height="12" rx="3" fill="#3a2212" />
+    <rect x="88" y="202" width="24" height="12" rx="3" fill="#3a2212" />
+
+    <!-- Torso (proud, chest out) -->
+    <path d="M 25,70 L 95,70 L 85,135 L 35,135 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2.5" />
+    <rect x="38" y="76" width="10" height="55" fill="#e2f1f7" />
+    <rect x="72" y="76" width="10" height="55" fill="#e2f1f7" />
+
+    <!-- Arms -->
+    <!-- Left arm holding GOLDEN DRILL like a sword up to the sky -->
+    <path d="M 25,78 L -10,40 L -25,20" stroke="#e0a915" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- Legendary GOLDEN DRILL -->
+    <g transform="translate(-45, -20) rotate(-45)">
+      <rect x="0" y="0" width="40" height="22" rx="4" fill="url(#goldDrill)" stroke="#d4af37" stroke-width="1.5" filter="url(#glow)" />
+      <rect x="10" y="18" width="10" height="15" fill="#d4af37" />
+      <rect x="35" y="7" width="22" height="7" fill="#ffeaa7" />
+      <line x1="57" y1="10" x2="75" y2="10" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+      <!-- Shine stars -->
+      <polygon points="10,-10 13,-3 20,-3 15,2 17,9 10,5 3,9 5,2 0,-3 7,-3" fill="#fff" transform="translate(10, 0) scale(0.6)" />
+    </g>
+
+    <!-- Right hand resting on hip -->
+    <path d="M 95,75 Q 120,95 90,115" stroke="#e0a915" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Head: looking up with pride, huge smile -->
+    <rect x="52" y="52" width="16" height="15" fill="#fcdbb0" />
+    <circle cx="60" cy="40" r="20" fill="#fcdbb0" stroke="#d5b080" stroke-width="2" />
+    <!-- Proud Face -->
+    <circle cx="53" cy="34" r="2.5" fill="#000" />
+    <circle cx="67" cy="34" r="2.5" fill="#000" />
+    <path d="M 52,24 Q 60,20 68,24" fill="none" stroke="#000" stroke-width="2" /> <!-- Happy eyebrows -->
+    <path d="M 50,48 Q 60,60 70,48" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" /> <!-- Big smile! -->
+
+    <!-- Helmet perfectly placed, shining -->
+    <path d="M 36,26 C 36,8 84,8 84,26 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="2" />
+    <rect x="32" y="23" width="56" height="5" rx="2.5" fill="#ffffff" stroke="#bdc3c7" stroke-width="2" />
+    <rect x="57" y="10" width="6" height="15" fill="#e74c3c" />
+    <polygon points="25,12 28,17 35,17 30,21 32,27 25,24 18,27 20,21 15,17 22,17" fill="#fff" opacity="0.8" /> <!-- Sparkle -->
+
+    <!-- VALERA: sitting on Petro's right shoulder, wearing a Gold Crown! -->
+    <g transform="translate(82, 35) scale(0.65)">
+      <ellipse cx="20" cy="30" rx="14" ry="10" fill="#5d6d7e" />
+      <circle cx="28" cy="18" r="8" fill="#5d6d7e" />
+      <polygon points="34,16 40,18 34,20" fill="#f39c12" />
+      <circle cx="28" cy="15" r="1.5" fill="#f1c40f" />
+      
+      <!-- Crown on Pigeon! -->
+      <polygon points="20,10 24,2 28,7 32,2 36,10" fill="#ffd700" stroke="#b8860b" stroke-width="0.5" />
+      <circle cx="20" cy="10" r="1" fill="#e74c3c" />
+      <circle cx="28" cy="10" r="1" fill="#e74c3c" />
+      <circle cx="36" cy="10" r="1" fill="#e74c3c" />
+
+      <!-- Wing folded -->
+      <ellipse cx="16" cy="30" rx="8" ry="5" fill="#34495e" />
+      <!-- Foot -->
+      <line x1="16" y1="40" x2="16" y2="46" stroke="#d35400" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- Celebration Confetti/Particles in sky -->
+  <circle cx="80" cy="120" r="3" fill="#ffeaa7" />
+  <rect x="140" y="80" width="4" height="8" fill="#55efc4" transform="rotate(30 140 80)" />
+  <rect x="440" y="90" width="4" height="8" fill="#ff7675" transform="rotate(-40 440 90)" />
+  <circle cx="480" cy="150" r="2.5" fill="#74b9ff" />
+  <polygon points="500,230 503,235 510,235 505,239 507,245 500,242 493,245 495,239 490,235 497,235" fill="#ffeaa7" />
+</svg>

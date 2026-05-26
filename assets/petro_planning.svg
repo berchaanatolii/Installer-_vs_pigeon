@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="concrete" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#4e5254" />
+      <stop offset="100%" stop-color="#2f3133" />
+    </radialGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+
+  <!-- Pavement Background -->
+  <rect width="600" height="450" fill="url(#concrete)" />
+
+  <!-- Asphalt cracks & lines to make it realistic concrete pavement -->
+  <path d="M 0,225 L 600,225 M 300,0 L 300,450" stroke="#1f2021" stroke-width="3" />
+  <path d="M 50,40 L 90,60 L 70,120" stroke="#252728" stroke-width="1.5" fill="none" opacity="0.5" />
+  <path d="M 450,380 L 490,410 M 490,410 L 530,390" stroke="#252728" stroke-width="1.5" fill="none" opacity="0.5" />
+
+  <!-- CHALK DRAWINGS ON THE GROUND -->
+  <g transform="translate(180, 80)">
+    <!-- Main building wall line -->
+    <line x1="20" y1="20" x2="20" y2="280" stroke="#ffffff" stroke-width="3" stroke-dasharray="6 4" opacity="0.7" />
+    <text x="30" y="40" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#ffffff" font-weight="bold" opacity="0.8">СТІНА (5 ПОВЕРХ)</text>
+
+    <!-- Parabolic path 1: Petro's jump to the flowerbed -->
+    <path d="M 20,40 Q 180,20 280,240" stroke="#5dade2" stroke-width="4" stroke-dasharray="8 5" fill="none" opacity="0.9" />
+    <!-- Flowerbed icon at end -->
+    <g transform="translate(265, 230)">
+      <ellipse cx="15" cy="15" rx="20" ry="10" fill="#e74c3c" opacity="0.4" />
+      <text x="15" y="27" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="bold" fill="#5dade2" text-anchor="middle">КЛУМБА</text>
+    </g>
+
+    <!-- Parabolic path 2: Dropping the drill -->
+    <path d="M 20,40 Q 100,5 140,260" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5 5" fill="none" opacity="0.8" />
+    <text x="140" y="280" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="bold" fill="#e74c3c" text-anchor="middle">ДРИЛЬ 💥</text>
+
+    <!-- Formula / Calculations drawn on concrete -->
+    <text x="150" y="80" font-family="monospace" font-size="14" fill="#ffffff" font-weight="bold" opacity="0.6">F = m * g</text>
+    <text x="150" y="105" font-family="monospace" font-size="14" fill="#ffffff" font-weight="bold" opacity="0.6">V = √ (2 * g * h)</text>
+    <text x="150" y="130" font-family="monospace" font-size="13" fill="#ffffff" font-weight="bold" opacity="0.6">g(голуба) = 0? 🤔</text>
+    
+    <!-- Big arrow and target -->
+    <path d="M 20,40 L 40,40 L 20,60 Z" fill="#ffffff" opacity="0.7" />
+    <circle cx="20" cy="40" r="8" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.7" />
+  </g>
+
+  <!-- PETRO: Kneeling & drawing with chalk -->
+  <g transform="translate(40, 150)">
+    <!-- Shadow -->
+    <ellipse cx="90" cy="220" rx="70" ry="12" fill="#000" opacity="0.5" />
+
+    <!-- Knees / Legs -->
+    <!-- Left bent leg -->
+    <path d="M 50,150 Q 30,170 50,210 L 90,210" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" stroke-linejoin="round" />
+    <!-- Right bent leg -->
+    <path d="M 70,150 Q 55,170 70,210 L 110,210" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" stroke-linejoin="round" />
+    <!-- Boots -->
+    <rect x="80" y="204" width="22" height="10" rx="3" fill="#3a2212" />
+    <rect x="100" y="204" width="22" height="10" rx="3" fill="#3a2212" />
+
+    <!-- Torso (bent forward) -->
+    <path d="M 50,120 Q 90,100 130,130 L 100,175 L 45,160 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2.5" />
+    <!-- Reflective Stripes -->
+    <path d="M 85,110 L 95,145" stroke="#e2f1f7" stroke-width="8" stroke-linecap="round" />
+    <path d="M 105,115 L 115,150" stroke="#e2f1f7" stroke-width="8" stroke-linecap="round" />
+
+    <!-- Arms -->
+    <!-- Left supporting arm -->
+    <path d="M 120,135 L 140,195 L 130,205" stroke="#e0a915" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- Right drawing arm -->
+    <path d="M 100,140 L 150,165 L 175,200" stroke="#e0a915" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- Piece of chalk in right hand -->
+    <rect x="172" y="196" width="6" height="10" fill="#ffffff" rx="1.5" transform="rotate(30 172 196)" />
+
+    <!-- Head & Neck -->
+    <rect x="110" y="100" width="15" height="15" fill="#fcdbb0" transform="rotate(10 110 100)" />
+    <circle cx="128" cy="100" r="18" fill="#fcdbb0" stroke="#d5b080" stroke-width="2" />
+    
+    <!-- Face (highly focused) -->
+    <circle cx="134" cy="96" r="2.5" fill="#000" />
+    <circle cx="142" cy="102" r="2.5" fill="#000" />
+    <!-- Tongue sticking out slightly -->
+    <path d="M 142,112 C 145,112 147,115 145,118 Z" fill="#e74c3c" stroke="#000" stroke-width="1" />
+    <!-- Mouth curve -->
+    <path d="M 132,112 Q 138,108 144,112" stroke="#000" stroke-width="2" fill="none" />
+
+    <!-- Helmet (white, on head) -->
+    <path d="M 112,87 C 112,70 152,70 152,87 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.8" />
+    <rect x="108" y="84" width="48" height="4" rx="2" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.8" />
+    <rect x="128" y="72" width="6" height="13" fill="#e74c3c" />
+  </g>
+
+  <!-- VALERA THE PIGEON: Wearing Glasses, reviewing the plan -->
+  <g transform="translate(420, 240)">
+    <!-- Shadow -->
+    <ellipse cx="30" cy="120" rx="30" ry="8" fill="#000" opacity="0.5" />
+
+    <!-- Feet -->
+    <line x1="20" y1="95" x2="20" y2="120" stroke="#d35400" stroke-width="3" />
+    <line x1="40" y1="95" x2="40" y2="120" stroke="#d35400" stroke-width="3" />
+
+    <!-- Pigeon Body -->
+    <ellipse cx="30" cy="70" rx="25" ry="18" fill="#5d6d7e" />
+    <circle cx="12" cy="45" r="14" fill="#5d6d7e" />
+    <!-- Beak -->
+    <polygon points="2,43 -8,46 2,49" fill="#f39c12" />
+
+    <!-- Round Professor Glasses! -->
+    <circle cx="-1" cy="44" r="5" stroke="#f1c40f" stroke-width="1.5" fill="none" />
+    <circle cx="5" cy="44" r="5" stroke="#f1c40f" stroke-width="1.5" fill="none" />
+    <line x1="1" y1="44" x2="3" y2="44" stroke="#f1c40f" stroke-width="2" />
+    
+    <!-- Pupil behind glasses -->
+    <circle cx="4.5" cy="44" r="1" fill="#000" />
+
+    <!-- Wing on back -->
+    <path d="M 38,62 Q 52,65 48,82 Q 35,90 28,78 Z" fill="#34495e" stroke="#2c3e50" stroke-width="1.5" />
+    
+    <!-- Feather tail -->
+    <polygon points="50,75 65,85 52,85" fill="#34495e" />
+
+    <!-- Purple collar -->
+    <path d="M 20,53 C 24,56 26,60 22,64" stroke="#8e44ad" stroke-width="3" fill="none" opacity="0.8" />
+  </g>
+
+  <!-- Pigeons dialogue box -->
+  <g transform="translate(360, 40)">
+    <rect x="0" y="0" width="220" height="70" rx="8" fill="#fff" stroke="#34495e" stroke-width="2" />
+    <polygon points="120,70 125,85 140,70" fill="#fff" stroke="#34495e" stroke-width="2" stroke-dasharray="0 40 40" />
+    <polygon points="119,68 124,82 139,68" fill="#fff" />
+    <text x="110" y="24" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="11" fill="#2980b9" text-anchor="middle">Валєра схвалює:</text>
+    <text x="110" y="42" font-family="'Inter', sans-serif" font-size="10" fill="#34495e" text-anchor="middle">«Траєкторія вірна. Залишилось</text>
+    <text x="110" y="56" font-family="'Inter', sans-serif" font-size="10" fill="#34495e" text-anchor="middle">підібрати правильний дриль.»</text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "name": "petro-installer-quest",
+  "version": "1.0.0",
+  "description": "An interactive micro-quest about Petro, an installer who is afraid of heights, and his pigeon mentor Valera.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "npx http-server ."
+  },
+  "keywords": [
+    "game",
+    "micro-quest",
+    "interactive-fiction",
+    "pigeon",
+    "installer"
+  ],
+  "author": "Antigravity AI",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

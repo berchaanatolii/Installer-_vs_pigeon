@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="daySky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#55efc4" />
+      <stop offset="60%" stop-color="#81ecec" />
+      <stop offset="100%" stop-color="#a29bfe" />
+    </linearGradient>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffeaa7" />
+      <stop offset="100%" stop-color="#d2dae2" />
+    </linearGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+    <filter id="shadowFilter" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="600" height="450" fill="url(#daySky)" />
+
+  <!-- Lazy clouds floating -->
+  <path d="M 80,100 C 110,80 140,80 150,95 C 170,90 200,95 205,110 C 180,130 110,130 80,120 Z" fill="#ffffff" opacity="0.4" />
+  <path d="M 420,60 C 450,40 480,40 490,55 C 510,50 540,55 545,70 C 520,90 450,90 420,80 Z" fill="#ffffff" opacity="0.3" />
+
+  <!-- The Ground: Lush Green Hill and Flowerbed -->
+  <path d="M 0,260 Q 300,220 600,260 L 600,450 L 0,450 Z" fill="#2ecc71" />
+  <path d="M -50,300 Q 200,280 650,310 L 650,450 L -50,450 Z" fill="#27ae60" />
+
+  <!-- Dense Flowerbed (Tons of colorful petunias/roses) -->
+  <g id="flowers" opacity="0.9">
+    <!-- Red Flowers -->
+    <circle cx="150" cy="330" r="14" fill="#e74c3c" />
+    <circle cx="140" cy="320" r="10" fill="#c0392b" />
+    <circle cx="160" cy="320" r="10" fill="#c0392b" />
+    <circle cx="150" cy="310" r="10" fill="#c0392b" />
+    <circle cx="150" cy="330" r="4" fill="#f1c40f" />
+
+    <circle cx="450" cy="340" r="14" fill="#e84393" />
+    <circle cx="450" cy="340" r="4" fill="#ffd32d" />
+
+    <!-- Yellow Flowers -->
+    <circle cx="80" cy="360" r="10" fill="#ffd32d" />
+    <circle cx="90" cy="370" r="10" fill="#ffd32d" />
+    <circle cx="75" cy="375" r="10" fill="#ffd32d" />
+    <circle cx="82" cy="368" r="3" fill="#3a2212" />
+
+    <circle cx="280" cy="390" r="12" fill="#f1c40f" />
+    <circle cx="280" cy="390" r="4" fill="#e67e22" />
+
+    <!-- Purple Flowers -->
+    <circle cx="220" cy="360" r="12" fill="#9b59b6" />
+    <circle cx="210" cy="350" r="8" fill="#8e44ad" />
+    <circle cx="230" cy="350" r="8" fill="#8e44ad" />
+    <circle cx="220" cy="360" r="3" fill="#fff" />
+
+    <circle cx="360" cy="370" r="14" fill="#a29bfe" />
+    <circle cx="360" cy="370" r="4" fill="#6c5ce7" />
+  </g>
+
+  <!-- PETRO: Lying happily on his back in the flowers -->
+  <g transform="translate(140, 220)">
+    <!-- Body Silhouette Shadow -->
+    <ellipse cx="120" cy="110" rx="90" ry="25" fill="#000" opacity="0.3" />
+
+    <!-- Legs lying down -->
+    <!-- Left Leg -->
+    <path d="M 50,90 L 10,95" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Right Leg crossed over casually -->
+    <path d="M 50,90 Q 30,70 15,65" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Boots lying relaxed -->
+    <rect x="-2" y="90" width="12" height="20" rx="3" fill="#3a2212" transform="rotate(-15 -2 90)" />
+    <rect x="5" y="55" width="20" height="12" rx="3" fill="#3a2212" transform="rotate(20 5 55)" />
+
+    <!-- Torso lying flat -->
+    <path d="M 50,90 L 130,90 L 130,55 L 50,55 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2.5" />
+    <!-- Reflective stripes -->
+    <rect x="65" y="58" width="45" height="6" fill="#e2f1f7" />
+    <rect x="65" y="80" width="45" height="6" fill="#e2f1f7" />
+
+    <!-- Arms behind head (ultra relaxed!) -->
+    <!-- Left Arm folded under head -->
+    <path d="M 125,58 C 145,45 160,50 150,68" stroke="#e0a915" stroke-width="8" stroke-linecap="round" fill="none" />
+    <!-- Right Arm holding broken drill casually on chest -->
+    <path d="M 110,90 C 130,95 140,85 125,75" stroke="#e0a915" stroke-width="8" stroke-linecap="round" fill="none" />
+
+    <!-- Broken Drill with flower growing out of it! -->
+    <g transform="translate(100, 50) rotate(-15)">
+      <!-- Drill body -->
+      <rect x="0" y="0" width="25" height="15" rx="2" fill="#1c2022" />
+      <rect x="5" y="10" width="6" height="10" fill="#111" />
+      <!-- Broken metal tear -->
+      <line x1="25" y1="0" x2="25" y2="15" stroke="#e74c3c" stroke-width="2" />
+      
+      <!-- Flower growing out! -->
+      <path d="M 23,7 Q 40,5 50,-5" stroke="#2ecc71" stroke-width="3" fill="none" stroke-linecap="round" />
+      <circle cx="50" cy="-5" r="8" fill="#ffd32d" />
+      <circle cx="50" cy="-5" r="2.5" fill="#e67e22" />
+      <!-- Petals -->
+      <circle cx="50" cy="-12" r="3" fill="#fff" />
+      <circle cx="50" cy="2" r="3" fill="#fff" />
+      <circle cx="43" cy="-5" r="3" fill="#fff" />
+      <circle cx="57" cy="-5" r="3" fill="#fff" />
+    </g>
+
+    <!-- Head: lying down, eyes closed peacefully, bliss smile -->
+    <rect x="130" y="60" width="15" height="16" fill="#fcdbb0" />
+    <circle cx="145" cy="68" r="18" fill="#fcdbb0" stroke="#d5b080" stroke-width="2" />
+    
+    <!-- Peaceful face -->
+    <!-- Eyes closed curves: u u -->
+    <path d="M 137,64 Q 140,68 143,64" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 148,64 Q 151,68 154,64" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" />
+    <!-- Big bliss smile -->
+    <path d="M 140,76 Q 146,82 152,76" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" />
+
+    <!-- White helmet lying next to him on grass with a ladybug on it -->
+    <g transform="translate(145, 80) rotate(40)">
+      <path d="M 5,20 C 5,5 45,5 45,20 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.5" />
+      <rect x="0" y="18" width="50" height="4" rx="2" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.5" />
+      <rect x="22" y="5" width="6" height="15" fill="#e74c3c" />
+      <!-- Ladybug -->
+      <circle cx="15" cy="8" r="3" fill="#e74c3c" />
+      <circle cx="17" cy="8" r="1" fill="#000" />
+    </g>
+  </g>
+
+  <!-- WOODEN SIGN: "Монтаж. Тільки горизонтально." -->
+  <g transform="translate(400, 200)" filter="url(#shadowFilter)">
+    <!-- Wooden Post -->
+    <rect x="55" y="80" width="10" height="100" fill="#8c5a3c" />
+    <rect x="55" y="80" width="3" height="100" fill="#a06e4e" />
+
+    <!-- Wooden Board -->
+    <rect x="0" y="20" width="120" height="65" rx="4" fill="#a06e4e" stroke="#5d3f2b" stroke-width="2.5" />
+    <!-- Wood grain lines -->
+    <path d="M 5,30 L 115,30 M 10,50 L 110,50 M 5,70 L 115,70" stroke="#784f33" stroke-width="1.5" fill="none" opacity="0.6" />
+    
+    <!-- Sign Text in Ukrainian -->
+    <text x="60" y="38" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="10" fill="#fff" text-anchor="middle">МОНТАЖ</text>
+    <text x="60" y="52" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="8" fill="#ffd32d" text-anchor="middle">ТІЛЬКИ</text>
+    <text x="60" y="68" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="9" fill="#fff" text-anchor="middle">ГОРИЗОНТАЛЬНО</text>
+
+    <!-- Cute Pigeon sitting on top of the sign -->
+    <g transform="translate(30, -32) scale(0.7)">
+      <ellipse cx="20" cy="30" rx="14" ry="10" fill="#7f8c8d" />
+      <circle cx="28" cy="18" r="8" fill="#7f8c8d" />
+      <polygon points="34,16 40,18 34,20" fill="#f39c12" />
+      <circle cx="28" cy="15" r="1.5" fill="#f1c40f" />
+      <ellipse cx="16" cy="30" rx="8" ry="5" fill="#95a5a6" />
+      
+      <!-- Speech bubble from sign pigeon -->
+      <path d="M 35,-10 L 80,-10 C 85,-10 85,-20 85,-20 L 35,-20 Z" fill="#fff" />
+      <text x="60" y="-12" font-family="'Inter', sans-serif" font-weight="bold" font-size="8" fill="#000" text-anchor="middle">Мудро!</text>
+    </g>
+  </g>
+
+  <!-- Happy butterflies flying around -->
+  <g transform="translate(80, 200)" opacity="0.8">
+    <path d="M 0,0 L 5,-8 L 8,-5 L 2,-2 L 5,3 L 0,0" fill="#e84393" />
+    <path d="M 0,0 L -5,-8 L -8,-5 L -2,-2 L -5,3 L 0,0" fill="#e84393" />
+    <line x1="0" y1="0" x2="0" y2="-10" stroke="#000" stroke-width="0.8" />
+  </g>
+</svg>

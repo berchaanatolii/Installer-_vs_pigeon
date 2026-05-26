@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f141d" />
+      <stop offset="100%" stop-color="#1b263b" />
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3a3e40" />
+      <stop offset="100%" stop-color="#2a2d2e" />
+    </linearGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="450" fill="url(#skyGrad)" />
+  
+  <!-- Brick Wall background -->
+  <path d="M 120,0 L 600,0 L 600,450 L 120,450 Z" fill="url(#wallGrad)" />
+  <!-- Bricks joints patterns -->
+  <path d="M 120,60 L 600,60 M 120,130 L 600,130 M 120,200 L 600,200 M 120,270 L 600,270 M 120,340 L 600,340 M 120,410 L 600,410" stroke="#1c1e1f" stroke-width="2.5" />
+  <line x1="280" y1="60" x2="280" y2="130" stroke="#1c1e1f" stroke-width="2" />
+  <line x1="450" y1="60" x2="450" y2="130" stroke="#1c1e1f" stroke-width="2" />
+  <line x1="200" y1="130" x2="200" y2="200" stroke="#1c1e1f" stroke-width="2" />
+  <line x1="380" y1="130" x2="380" y2="200" stroke="#1c1e1f" stroke-width="2" />
+  <line x1="520" y1="130" x2="520" y2="200" stroke="#1c1e1f" stroke-width="2" />
+  <line x1="290" y1="200" x2="290" y2="270" stroke="#1c1e1f" stroke-width="2" />
+  <line x1="470" y1="200" x2="470" y2="270" stroke="#1c1e1f" stroke-width="2" />
+  
+  <!-- Ground -->
+  <rect x="0" y="420" width="600" height="30" fill="#1b1c1d" />
+
+  <!-- LADDER leaning against the wall -->
+  <g transform="translate(180, 20) rotate(8)">
+    <!-- Left Rail -->
+    <rect x="0" y="0" width="12" height="420" rx="3" fill="#7f8c8d" />
+    <rect x="2" y="0" width="4" height="420" fill="#bdc3c7" />
+    <!-- Right Rail -->
+    <rect x="80" y="0" width="12" height="420" rx="3" fill="#7f8c8d" />
+    <rect x="82" y="0" width="4" height="420" fill="#bdc3c7" />
+    <!-- Rungs -->
+    <rect x="12" y="50" width="68" height="6" fill="#95a5a6" />
+    <rect x="12" y="110" width="68" height="6" fill="#95a5a6" />
+    <rect x="12" y="170" width="68" height="6" fill="#95a5a6" />
+    <rect x="12" y="230" width="68" height="6" fill="#95a5a6" />
+    <rect x="12" y="290" width="68" height="6" fill="#95a5a6" />
+    <rect x="12" y="350" width="68" height="6" fill="#95a5a6" />
+  </g>
+
+  <!-- PETRO: Clinging on the ladder -->
+  <g transform="translate(170, 160)">
+    <!-- Shaking speedlines around Petro -->
+    <path d="M -10,60 Q -15,65 -10,70 M 115,50 Q 120,55 115,60" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.5" />
+
+    <!-- Legs clutching rungs -->
+    <!-- Left Leg wrapped -->
+    <path d="M 30,120 C 15,140 10,165 35,175" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Right Leg wrapped -->
+    <path d="M 70,120 C 85,140 90,165 65,175" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Boots -->
+    <rect x="25" y="170" width="18" height="12" rx="3" fill="#3a2212" transform="rotate(-10 25 170)" />
+    <rect x="58" y="170" width="18" height="12" rx="3" fill="#3a2212" transform="rotate(10 58 170)" />
+
+    <!-- Body / Torso (Back-facing slightly, hugging ladder) -->
+    <path d="M 25,60 L 75,60 L 85,120 L 15,120 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2.5" />
+    <rect x="35" y="65" width="30" height="8" fill="#e2f1f7" />
+    <rect x="35" y="90" width="30" height="8" fill="#e2f1f7" />
+
+    <!-- Arms hugging the ladder rails -->
+    <!-- Left Arm -->
+    <path d="M 25,65 C 0,70 -10,95 20,105" stroke="#e0a915" stroke-width="9" stroke-linecap="round" fill="none" />
+    <!-- Right Arm -->
+    <path d="M 75,65 C 100,70 110,95 80,105" stroke="#e0a915" stroke-width="9" stroke-linecap="round" fill="none" />
+
+    <!-- Head turned sideways, pressed against rail -->
+    <rect x="42" y="40" width="16" height="15" fill="#fcdbb0" />
+    <circle cx="50" cy="30" r="20" fill="#fcdbb0" stroke="#d5b080" stroke-width="2" />
+
+    <!-- Face (terrified) -->
+    <!-- Eyes closed tight: > < -->
+    <path d="M 40,25 L 46,31 L 40,37" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 60,25 L 54,31 L 60,37" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Open screaming mouth -->
+    <ellipse cx="50" cy="42" rx="5" ry="7" fill="#000000" />
+    <!-- Sweat drop flying -->
+    <path d="M 25,25 Q 18,22 18,17" stroke="#33a8ff" stroke-width="1.8" fill="none" stroke-linecap="round" />
+
+    <!-- Helmet askew -->
+    <path d="M 26,18 C 26,0 74,0 74,18 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="2" transform="rotate(-12 50 18)" />
+    <rect x="22" y="15" width="56" height="5" rx="2.5" fill="#ffffff" stroke="#bdc3c7" stroke-width="2" transform="rotate(-12 50 18)" />
+  </g>
+
+  <!-- AIR CONDITIONER UNIT on the right -->
+  <g transform="translate(420, 180)">
+    <!-- Brackets -->
+    <path d="M 10,80 L 10,120 M 110,80 L 110,120" stroke="#7f8c8d" stroke-width="4" />
+    <!-- AC Main box -->
+    <rect x="0" y="0" width="120" height="80" rx="6" fill="#eef2f3" stroke="#bdc3c7" stroke-width="3" />
+    <!-- Fan grill -->
+    <circle cx="40" cy="40" r="28" fill="#d1d8e0" stroke="#a5b1c2" stroke-width="2" />
+    <circle cx="40" cy="40" r="6" fill="#4b6584" />
+    <!-- Blades -->
+    <path d="M 40,40 L 25,25 M 40,40 L 55,55 M 40,40 L 25,55 M 40,40 L 55,25" stroke="#4b6584" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Brand label -->
+    <text x="95" y="25" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="bold" fill="#7f8c8d" text-anchor="middle">COLD-O-MATIC</text>
+    
+    <!-- VALERA THE PIGEON on top of AC with Megaphone -->
+    <g transform="translate(20, -50)">
+      <!-- Body -->
+      <ellipse cx="30" cy="30" rx="18" ry="12" fill="#5d6d7e" />
+      <circle cx="42" cy="16" r="10" fill="#5d6d7e" />
+      <polygon points="48,14 56,17 48,20" fill="#f39c12" />
+      <!-- Pigeon eye -->
+      <circle cx="42" cy="14" r="2" fill="#f1c40f" />
+      <circle cx="42" cy="14" r="0.8" fill="#000" />
+      <!-- Shiny purple neck feather highlight -->
+      <path d="M 38,20 C 44,22 45,26 42,28" stroke="#8e44ad" stroke-width="2.5" fill="none" opacity="0.8" />
+      <!-- Wing -->
+      <ellipse cx="24" cy="30" rx="11" ry="6" fill="#34495e" />
+      <!-- Megaphone held in wing/beak -->
+      <g transform="translate(48, 16) rotate(15)">
+        <polygon points="0,5 20,15 20,-5" fill="#f1c40f" stroke="#d68910" stroke-width="1.5" />
+        <rect x="-10" y="0" width="10" height="6" fill="#e74c3c" />
+        <rect x="-8" y="5" width="4" height="8" fill="#111" /> <!-- Handle -->
+      </g>
+      <!-- Feet -->
+      <line x1="24" y1="42" x2="24" y2="50" stroke="#d35400" stroke-width="2" />
+      <line x1="32" y1="42" x2="32" y2="50" stroke="#d35400" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- SHOUT WAVES FROM MEGAPHONE -->
+  <g transform="translate(490, 190) rotate(15)" opacity="0.85">
+    <path d="M 10,-5 Q 25,-20 40,-35 M 15,0 Q 35,0 55,0 M 10,5 Q 25,20 40,35" stroke="#f1c40f" stroke-width="2.5" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Hilarious text from Pigeon Valera -->
+  <g transform="translate(340, 45)">
+    <rect x="0" y="0" width="230" height="75" rx="8" fill="#fff" stroke="#f1c40f" stroke-width="2" />
+    <polygon points="50,75 40,75 30,90" fill="#fff" stroke="#f1c40f" stroke-dasharray="0 40 40" />
+    <!-- White cover-up for stroke behind triangle -->
+    <polygon points="49,73 41,73 31,88" fill="#fff" />
+    <text x="115" y="25" font-family="'Inter', sans-serif" font-weight="bold" font-size="11" fill="#c0392b" text-anchor="middle">КУДИ ТИ ДИВИШСЯ, СИНКУ?!</text>
+    <text x="115" y="44" font-family="'Inter', sans-serif" font-size="10" fill="#2c3e50" text-anchor="middle">Висота — це ілюзія!</text>
+    <text x="115" y="60" font-family="'Inter', sans-serif" font-size="10" fill="#2c3e50" text-anchor="middle">Розслаб гузно і крути болт!</text>
+  </g>
+</svg>

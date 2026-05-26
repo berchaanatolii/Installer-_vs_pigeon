@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deepSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="60%" stop-color="#192a56" />
+      <stop offset="100%" stop-color="#273c75" />
+    </linearGradient>
+    <linearGradient id="concreteWall" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2d3436" />
+      <stop offset="50%" stop-color="#3d4446" />
+      <stop offset="100%" stop-color="#2d3436" />
+    </linearGradient>
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#718093" />
+      <stop offset="50%" stop-color="#353b48" />
+      <stop offset="100%" stop-color="#2f3640" />
+    </linearGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="450" fill="url(#deepSky)" />
+
+  <!-- Stars -->
+  <circle cx="80" cy="50" r="1" fill="#fff" opacity="0.6" />
+  <circle cx="210" cy="90" r="1.5" fill="#fff" opacity="0.4" />
+  <circle cx="340" cy="40" r="2" fill="#fff" opacity="0.8" />
+  <circle cx="500" cy="70" r="1.5" fill="#fff" opacity="0.5" />
+
+  <!-- Concrete High-Rise Wall -->
+  <path d="M 0,0 L 400,0 L 350,450 L 0,450 Z" fill="url(#concreteWall)" stroke="#1e272e" stroke-width="3" />
+  
+  <!-- Window frames far away on wall -->
+  <rect x="50" y="40" width="60" height="90" rx="3" fill="#0f1112" />
+  <rect x="53" y="43" width="24" height="40" fill="#fbc531" opacity="0.2" />
+  <rect x="83" y="43" width="24" height="40" fill="#fbc531" opacity="0.2" />
+  
+  <!-- The ledge Petro is perched on -->
+  <path d="M 0,280 L 420,280 L 400,320 L 0,320 Z" fill="#718093" stroke="#2f3640" stroke-width="3" />
+  
+  <!-- WHITE PIGEON SPLASH (Easter Egg Graffiti!) on the ledge -->
+  <path d="M 330,280 C 330,288 320,292 325,296 C 330,300 338,298 340,305 C 342,298 355,302 350,292 C 348,287 340,280 330,280 Z" fill="#ffffff" />
+  <circle cx="323" cy="298" r="1.5" fill="#ffffff" />
+  <circle cx="348" cy="308" r="2.5" fill="#ffffff" />
+
+  <!-- PETRO THE PIGEONMAN: Perched like a gargoyle/bird -->
+  <g transform="translate(140, 70)">
+    <!-- Shadow -->
+    <ellipse cx="70" cy="215" rx="40" ry="8" fill="#000" opacity="0.5" />
+
+    <!-- GIANT PIGEON WINGS spread out majestically behind him -->
+    <!-- Left Wing -->
+    <path d="M 20,95 Q -90,40 -120,120 Q -90,170 10,130 Z" fill="url(#wingGrad)" stroke="#1e272e" stroke-width="2" />
+    <path d="M -10,88 C -50,65 -80,95 -100,115" stroke="#7f8c8d" stroke-width="2.5" fill="none" opacity="0.4" />
+    <!-- Right Wing -->
+    <path d="M 120,95 Q 230,40 260,120 Q 230,170 130,130 Z" fill="url(#wingGrad)" stroke="#1e272e" stroke-width="2" />
+    <path d="M 150,88 C 190,65 220,95 240,115" stroke="#7f8c8d" stroke-width="2.5" fill="none" opacity="0.4" />
+
+    <!-- Bird feet clutching the ledge -->
+    <!-- Yellow bird-like claws scaling the edge! -->
+    <path d="M 40,210 L 35,225 M 40,210 L 40,226 M 40,210 L 45,225" stroke="#f1c40f" stroke-width="4" stroke-linecap="round" />
+    <path d="M 100,210 L 95,225 M 100,210 L 100,226 M 100,210 L 105,225" stroke="#f1c40f" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Legs bent in squat/perched position -->
+    <path d="M 45,135 Q 25,180 40,210" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 95,135 Q 115,180 100,210" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Torso / Vest (hunched forward) -->
+    <path d="M 30,70 L 110,70 L 120,135 L 20,135 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2.5" />
+    <rect x="42" y="80" width="8" height="50" fill="#e2f1f7" />
+    <rect x="90" y="80" width="8" height="50" fill="#e2f1f7" />
+    
+    <!-- Shiny purple neck feathers highlight on his neck! -->
+    <path d="M 50,68 C 65,70 75,70 90,68" stroke="#8e44ad" stroke-width="5" fill="none" opacity="0.85" />
+    <path d="M 46,74 C 65,77 75,77 94,74" stroke="#27ae60" stroke-width="3" fill="none" opacity="0.75" />
+
+    <!-- Head: bird-like stare, orange ring eyes -->
+    <rect x="62" y="50" width="16" height="15" fill="#fcdbb0" />
+    <circle cx="70" cy="38" r="20" fill="#fcdbb0" stroke="#d5b080" stroke-width="2" />
+    
+    <!-- Hypnotized round pigeon eyes! -->
+    <circle cx="56" cy="34" r="5" fill="#ffffff" />
+    <circle cx="56" cy="34" r="3" fill="#e67e22" />
+    <circle cx="56" cy="34" r="1" fill="#000" />
+    
+    <circle cx="84" cy="34" r="5" fill="#ffffff" />
+    <circle cx="84" cy="34" r="3" fill="#e67e22" />
+    <circle cx="84" cy="34" r="1" fill="#000" />
+    
+    <!-- Funny little beak mask or nose shape -->
+    <polygon points="70,38 67,46 73,46" fill="#f39c12" stroke="#000" stroke-width="1" />
+    <!-- Happy chirping line mouth -->
+    <path d="M 64,48 Q 70,52 76,48" stroke="#000" stroke-width="2" fill="none" />
+
+    <!-- White safety helmet with HOLES for ears/feathers -->
+    <path d="M 46,24 C 46,6 94,6 94,24 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="2" />
+    <rect x="42" y="21" width="56" height="5" rx="2.5" fill="#ffffff" stroke="#bdc3c7" stroke-width="2" />
+    <rect x="67" y="8" width="6" height="15" fill="#e74c3c" />
+    <!-- Two feathers sticking out of helmet! -->
+    <path d="M 40,15 Q 30,5 25,-5" stroke="#7f8c8d" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 100,15 Q 110,5 115,-5" stroke="#7f8c8d" stroke-width="2" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- VALERA THE PIGEON: Flying nearby, shedding a tear of absolute pride -->
+  <g transform="translate(420, 110)">
+    <ellipse cx="30" cy="30" rx="16" ry="11" fill="#5d6d7e" />
+    <circle cx="42" cy="18" r="9" fill="#5d6d7e" />
+    <polygon points="48,16 55,19 48,22" fill="#f39c12" />
+    
+    <circle cx="42" cy="15" r="2" fill="#f1c40f" />
+    <circle cx="42" cy="15" r="0.8" fill="#000" />
+    
+    <!-- Pride tear -->
+    <path d="M 42,18 L 40,24 L 44,24 Z" fill="#74b9ff" />
+
+    <path d="M 24,24 Q 28,10 20,4 M 26,30 Q 15,35 12,40" stroke="#34495e" stroke-width="3" fill="none" stroke-linecap="round" />
+
+    <!-- Speech bubble -->
+    <path d="M -10,-10 Q -50,-10 -60,-30 Q -20,-35 0,-15 Z" fill="#fff" />
+    <text x="-32" y="-22" font-family="'Inter', sans-serif" font-weight="bold" font-size="8" fill="#000">Мій пездюк!</text>
+  </g>
+
+  <!-- Glowing full moon overlay in corner for magical bird vibe -->
+  <circle cx="530" cy="70" r="40" fill="#fff" opacity="0.15" />
+</svg>

@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="60%" stop-color="#141a29" />
+      <stop offset="100%" stop-color="#1b263b" />
+    </linearGradient>
+    <linearGradient id="curbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7f8c8d" />
+      <stop offset="100%" stop-color="#4d5657" />
+    </linearGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="450" fill="url(#nightSky)" />
+
+  <!-- Stars -->
+  <circle cx="90" cy="40" r="1" fill="#fff" opacity="0.5" />
+  <circle cx="170" cy="90" r="1.5" fill="#fff" opacity="0.7" />
+  <circle cx="250" cy="50" r="1" fill="#fff" opacity="0.3" />
+  <circle cx="310" cy="110" r="2" fill="#fff" opacity="0.6" />
+  <circle cx="480" cy="60" r="1" fill="#fff" opacity="0.4" />
+  <circle cx="530" cy="90" r="1.5" fill="#fff" opacity="0.8" />
+  
+  <!-- Moon (crescent) -->
+  <path d="M 400,40 A 20,20 0 1,0 435,55 A 16,16 0 1,1 400,40" fill="#f1c40f" opacity="0.85" />
+
+  <!-- Background street silhouette -->
+  <path d="M 0,280 L 100,280 L 120,240 L 180,240 L 200,280 L 600,280 L 600,320 L 0,320 Z" fill="#0f1322" />
+
+  <!-- Curb and Road -->
+  <rect x="0" y="320" width="600" height="40" fill="url(#curbGrad)" />
+  <rect x="0" y="360" width="600" height="90" fill="#1c2022" />
+  
+  <!-- Yellow road paint stripe -->
+  <line x1="0" y1="410" x2="600" y2="410" stroke="#f1c40f" stroke-width="6" stroke-dasharray="40 30" opacity="0.7" />
+
+  <!-- PETRO: Sitting on the curb, depressed -->
+  <g transform="translate(140, 180)">
+    <!-- Shadow -->
+    <ellipse cx="60" cy="142" rx="40" ry="8" fill="#000" opacity="0.4" />
+
+    <!-- Legs sitting -->
+    <!-- Left Leg -->
+    <path d="M 30,110 Q 50,110 55,140" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Right Leg -->
+    <path d="M 70,110 Q 90,110 95,140" stroke="#1a2d42" stroke-width="12" stroke-linecap="round" fill="none" />
+    <!-- Boots -->
+    <rect x="42" y="136" width="22" height="10" rx="3" fill="#3a2212" />
+    <rect x="82" y="136" width="22" height="10" rx="3" fill="#3a2212" />
+
+    <!-- Torso sitting -->
+    <path d="M 30,60 L 80,58 L 90,115 L 20,115 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2" />
+    <!-- Reflective Stripes -->
+    <rect x="36" y="65" width="8" height="45" fill="#e2f1f7" />
+    <rect x="68" y="65" width="8" height="45" fill="#e2f1f7" />
+
+    <!-- Arms -->
+    <!-- Right hand supporting chin -->
+    <path d="M 80,65 Q 105,75 95,45" stroke="#e0a915" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- Left hand on knee -->
+    <path d="M 25,65 Q 10,90 25,110" stroke="#e0a915" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Head tilted/resting on hand -->
+    <rect x="52" y="42" width="14" height="15" fill="#fcdbb0" />
+    <circle cx="60" cy="30" r="20" fill="#fcdbb0" stroke="#d5b080" stroke-width="2" />
+    
+    <!-- Face (sad/pensive) -->
+    <circle cx="52" cy="26" r="2" fill="#000" />
+    <circle cx="68" cy="26" r="2" fill="#000" />
+    <path d="M 52,18 C 56,16 64,16 68,18" stroke="#000" stroke-width="2" fill="none" /> <!-- Sad eyebrows -->
+    <path d="M 54,38 Q 60,34 66,38" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" /> <!-- Sad mouth -->
+
+    <!-- Safety helmet on the floor next to him -->
+    <g transform="translate(-50, 115) rotate(15)">
+      <path d="M 5,20 C 5,5 45,5 45,20 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.5" />
+      <rect x="0" y="18" width="50" height="4" rx="2" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.5" />
+      <rect x="22" y="5" width="6" height="15" fill="#e74c3c" />
+    </g>
+  </g>
+
+  <!-- VALERA THE PIGEON: Sitting next to him, posing philosophically -->
+  <g transform="translate(320, 220)">
+    <!-- Shadow -->
+    <ellipse cx="40" cy="102" rx="25" ry="6" fill="#000" opacity="0.4" />
+
+    <!-- Feet -->
+    <line x1="30" y1="80" x2="30" y2="102" stroke="#d35400" stroke-width="3" />
+    <line x1="50" y1="80" x2="50" y2="102" stroke="#d35400" stroke-width="3" />
+
+    <!-- Pigeon Body -->
+    <ellipse cx="40" cy="55" rx="28" ry="20" fill="#5d6d7e" />
+    <circle cx="60" cy="30" r="16" fill="#5d6d7e" stroke="#526170" stroke-width="0.5" />
+    <polygon points="72,25 84,29 72,33" fill="#f39c12" />
+    
+    <!-- Purple/green neck glow -->
+    <path d="M 50,38 C 58,40 60,45 56,48" stroke="#8e44ad" stroke-width="3.5" fill="none" opacity="0.8" />
+    <path d="M 48,42 C 54,44 56,48 52,51" stroke="#27ae60" stroke-width="2.5" fill="none" opacity="0.7" />
+
+    <!-- Eye (wise, calm) -->
+    <circle cx="60" cy="26" r="3.5" fill="#f1c40f" />
+    <circle cx="60" cy="26" r="1.5" fill="#000" />
+
+    <!-- Wing pointing to the sky! -->
+    <path d="M 28,52 C 15,35 10,-10 32,5" fill="#34495e" stroke="#2c3e50" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- Wisdom Speech Bubble -->
+  <g transform="translate(290, 30)">
+    <rect x="0" y="0" width="280" height="90" rx="12" fill="#ffffff" opacity="0.95" stroke="#34495e" stroke-width="2.5" />
+    <!-- Tail pointing to Pigeon -->
+    <polygon points="120,90 100,90 85,115" fill="#ffffff" stroke="#34495e" stroke-width="2.5" />
+    <!-- Cover stroke line -->
+    <polygon points="119,88 101,88 86,110" fill="#ffffff" />
+    
+    <text x="140" y="28" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="13" fill="#2c3e50" text-anchor="middle">Валєра Мудрець:</text>
+    <text x="140" y="50" font-family="'Inter', sans-serif" font-size="11" fill="#34495e" text-anchor="middle">«Слухай, синку, висота — це ілюзія.</text>
+    <text x="140" y="68" font-family="'Inter', sans-serif" font-size="11" fill="#34495e" text-anchor="middle">Я сто разів падав, і нічого.</text>
+    <text x="140" y="82" font-family="'Inter', sans-serif" font-weight="bold" fill="#e74c3c" font-size="10" text-anchor="middle">Просто розслаб гузно.»</text>
+  </g>
+</svg>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#080c16" />
+      <stop offset="50%" stop-color="#121824" />
+      <stop offset="100%" stop-color="#243049" />
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a2d2f" />
+      <stop offset="100%" stop-color="#181a1b" />
+    </linearGradient>
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="450" fill="url(#skyGrad)" />
+
+  <!-- Tiny street silhouette far below to emphasize height -->
+  <rect x="0" y="430" width="600" height="20" fill="#000" />
+  <!-- Small yellow street lights below -->
+  <circle cx="80" cy="438" r="2" fill="#ffd32d" />
+  <circle cx="180" cy="438" r="2" fill="#ffd32d" />
+  <circle cx="280" cy="438" r="2" fill="#ffd32d" />
+  <circle cx="380" cy="438" r="2" fill="#ffd32d" />
+  <circle cx="480" cy="438" r="2" fill="#ffd32d" />
+
+  <!-- Clouds floating vertically below -->
+  <path d="M 50,380 C 70,370 90,370 100,380 C 110,375 125,375 130,385 C 135,395 100,410 50,400 Z" fill="#ffffff" opacity="0.15" />
+  <path d="M 450,340 C 470,330 495,330 500,340 C 510,335 520,335 525,345 C 530,355 500,370 450,360 Z" fill="#ffffff" opacity="0.1" />
+
+  <!-- Building Wall on the Left -->
+  <path d="M 0,0 L 140,0 L 140,450 L 0,450 Z" fill="url(#wallGrad)" />
+  <!-- Window silhouette -->
+  <rect x="10" y="80" width="80" height="120" rx="4" fill="#0f1112" />
+  <rect x="15" y="85" width="32" height="50" rx="2" fill="#ffd32d" opacity="0.15" />
+  <rect x="53" y="85" width="32" height="50" rx="2" fill="#ffd32d" opacity="0.2" />
+
+  <!-- LADDER stretching into the sky -->
+  <g transform="translate(110, 0)">
+    <rect x="0" y="0" width="10" height="450" fill="#7f8c8d" />
+    <rect x="40" y="0" width="10" height="450" fill="#7f8c8d" />
+    <!-- Rungs -->
+    <rect x="10" y="40" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="90" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="140" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="190" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="240" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="290" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="340" width="30" height="5" fill="#bdc3c7" />
+    <rect x="10" y="390" width="30" height="5" fill="#bdc3c7" />
+  </g>
+
+  <!-- PETRO: Hanging in mid-air, pale green in face -->
+  <g transform="translate(95, 100)">
+    <!-- Body shaking speedlines -->
+    <path d="M -15,40 Q -20,45 -15,50" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.4" />
+    <path d="M 75,50 Q 80,55 75,60" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.4" />
+
+    <!-- Legs holding ladder rail -->
+    <path d="M 25,100 C 10,120 12,145 28,150" stroke="#1a2d42" stroke-width="10" stroke-linecap="round" fill="none" />
+    <path d="M 55,100 C 70,120 68,145 52,150" stroke="#1a2d42" stroke-width="10" stroke-linecap="round" fill="none" />
+    <rect x="18" y="146" width="14" height="8" rx="2" fill="#3a2212" />
+    <rect x="48" y="146" width="14" height="8" rx="2" fill="#3a2212" />
+
+    <!-- Vest / Torso -->
+    <path d="M 20,50 L 60,50 L 70,100 L 10,100 Z" fill="url(#vestGrad)" stroke="#3a3200" stroke-width="2" />
+    <rect x="28" y="55" width="24" height="6" fill="#e2f1f7" />
+    <rect x="28" y="75" width="24" height="6" fill="#e2f1f7" />
+
+    <!-- Arms clinging on -->
+    <path d="M 20,55 C 5,60 -5,80 20,90" stroke="#e0a915" stroke-width="8" stroke-linecap="round" fill="none" />
+    <path d="M 60,55 C 75,60 85,80 60,90" stroke="#e0a915" stroke-width="8" stroke-linecap="round" fill="none" />
+
+    <!-- Head and Pale-Green Face -->
+    <rect x="33" y="32" width="14" height="15" fill="#a8e6cf" /> <!-- Pale green face! -->
+    <circle cx="40" cy="20" r="18" fill="#a8e6cf" stroke="#87d4b5" stroke-width="2" />
+
+    <!-- Face details -->
+    <!-- Eyes rolling/spirals -->
+    <path d="M 28,18 Q 32,14 34,18 Q 36,22 32,22 Q 28,22 30,18" stroke="#000" stroke-width="1.5" fill="none" />
+    <path d="M 46,18 Q 50,14 52,18 Q 54,22 50,22 Q 46,22 48,18" stroke="#000" stroke-width="1.5" fill="none" />
+    <!-- Nervous open mouth -->
+    <path d="M 32,30 Q 40,24 48,30" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    
+    <!-- Helmet askew -->
+    <path d="M 20,10 C 20,-5 60,-5 60,10 Z" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.5" transform="rotate(-8 40 10)" />
+    <rect x="16" y="8" width="48" height="4" rx="2" fill="#ffffff" stroke="#bdc3c7" stroke-width="1.5" transform="rotate(-8 40 10)" />
+    <rect x="37" y="-1" width="6" height="11" fill="#e74c3c" transform="rotate(-8 40 10)" />
+  </g>
+
+  <!-- PIGEON 1: Flying on the right with POPCORN and 3D glasses! -->
+  <g transform="translate(360, 110)">
+    <!-- Pigeon Body -->
+    <ellipse cx="30" cy="30" rx="16" ry="11" fill="#5d6d7e" />
+    <circle cx="42" cy="18" r="9" fill="#5d6d7e" />
+    <polygon points="48,16 55,19 48,22" fill="#f39c12" />
+    
+    <!-- 3D glasses (Red/Blue) -->
+    <rect x="36" y="12" width="14" height="6" rx="1" fill="#000" />
+    <rect x="38" y="13" width="4" height="4" fill="#e74c3c" /> <!-- Red lens -->
+    <rect x="44" y="13" width="4" height="4" fill="#3498db" /> <!-- Blue lens -->
+    
+    <!-- Wings flapping -->
+    <path d="M 24,24 Q 28,10 20,4 M 26,30 Q 15,35 12,40" stroke="#34495e" stroke-width="3" fill="none" stroke-linecap="round" />
+    
+    <!-- Popcorn bucket held in wing -->
+    <g transform="translate(5, 25)">
+      <!-- Bucket -->
+      <polygon points="0,0 20,0 17,25 3,25" fill="#e74c3c" />
+      <line x1="5" y1="0" x2="5" y2="25" stroke="#fff" stroke-width="2" />
+      <line x1="10" y1="0" x2="10" y2="25" stroke="#fff" stroke-width="2" />
+      <line x1="15" y1="0" x2="15" y2="25" stroke="#fff" stroke-width="2" />
+      <!-- Popcorn on top -->
+      <circle cx="3" cy="-2" r="3" fill="#f1c40f" />
+      <circle cx="8" cy="-3" r="3.5" fill="#fcfcfc" />
+      <circle cx="13" cy="-4" r="3" fill="#ffd32d" />
+      <circle cx="18" cy="-2" r="3" fill="#f1c40f" />
+    </g>
+  </g>
+
+  <!-- PIGEON 2: Hovering below, laughing -->
+  <g transform="translate(260, 240) scale(0.8)">
+    <ellipse cx="30" cy="30" rx="16" ry="11" fill="#7f8c8d" />
+    <circle cx="42" cy="18" r="9" fill="#7f8c8d" />
+    <polygon points="48,16 54,18 48,20" fill="#f39c12" />
+    <circle cx="42" cy="15" r="1.5" fill="#f1c40f" />
+    
+    <!-- 3D glasses -->
+    <rect x="37" y="12" width="12" height="5" rx="1" fill="#000" />
+    <rect x="39" y="13" width="3" height="3" fill="#e74c3c" />
+    <rect x="44" y="13" width="3" height="3" fill="#3498db" />
+
+    <!-- wing flapping -->
+    <path d="M 24,24 Q 28,10 20,4" stroke="#95a5a6" stroke-width="3" fill="none" stroke-linecap="round" />
+    
+    <!-- Text balloon -->
+    <path d="M -10,0 Q -40,-10 -50,-30 Q -20,-30 0,-10 Z" fill="#fff" />
+    <text x="-25" y="-18" font-family="'Inter', sans-serif" font-weight="bold" font-size="8" fill="#000">Епічно!</text>
+  </g>
+
+  <!-- Wind flowlines in sky to show height/speed of wind -->
+  <path d="M 220,50 L 320,50 M 340,300 L 460,300 M 180,380 L 260,380" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.25" stroke-dasharray="10 15" />
+</svg>

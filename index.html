@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монтажник Петро: Висота — не моє 🛠️🐦</title>
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Vanilla CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Vite Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</head>
+<body data-phase="ground" data-motion="shaking">
+
+    <!-- Feather Particle Canvas overlay for premium floating feathers -->
+    <div id="particles-container" class="particles-container"></div>
+
+    <div class="app-container">
+        
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="logo-area">
+                <span class="hazard-tape"></span>
+                <h1 class="main-title">Монтажник Петро <span class="subtitle">Висота — не моє</span></h1>
+            </div>
+            <div class="control-area">
+                <button id="audio-toggle" class="btn-audio text-only" title="Увімкнути/Вимкнути звук">
+                    <span class="audio-icon">🔇</span> Без звуку
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <div class="main-layout">
+            
+            <!-- LEFT SIDEBAR: STATUS BOARD -->
+            <aside class="status-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-header">
+                        <h2>Панель стану</h2>
+                        <span class="badge badge-danger">ЖИВИЙ</span>
+                    </div>
+
+                    <!-- Petro's interactive avatar (Click 3 times for secret) -->
+                    <div class="petro-avatar-container">
+                        <div id="petro-avatar" class="petro-avatar" title="Клацни по касці 3 рази для пасхалки!">
+                            <div class="helmet-top"></div>
+                            <div class="helmet-brim"></div>
+                            <div class="avatar-eyes">
+                                <span class="eye left">👁️</span>
+                                <span class="eye right">👁️</span>
+                            </div>
+                            <div class="avatar-mouth">〰️</div>
+                        </div>
+                        <div class="avatar-glow"></div>
+                    </div>
+
+                    <!-- Petro's dynamic rank/title -->
+                    <div class="status-row">
+                        <span class="status-label">Титул:</span>
+                        <span id="petro-title" class="status-value title-highlight">Звичайний монтажник</span>
+                    </div>
+
+                    <hr class="divider">
+
+                    <!-- FEAR METER -->
+                    <div class="stat-group">
+                        <div class="stat-header">
+                            <span class="stat-label">😱 Рівень страху</span>
+                            <span id="fear-percentage" class="stat-value">20%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="fear-progress" class="progress-bar bar-fear" style="width: 20%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- PIGEON RESPECT METER -->
+                    <div class="stat-group">
+                        <div class="stat-header">
+                            <span class="stat-label">🐦 Повага голубів</span>
+                            <span id="respect-percentage" class="stat-value">10%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="respect-progress" class="progress-bar bar-respect" style="width: 10%;"></div>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <!-- DECISION LOG / TIMELINE -->
+                    <div class="log-section">
+                        <h3>Журнал рішень</h3>
+                        <div id="decision-log" class="log-timeline">
+                            <div class="log-item start-item">Прибув на об'єкт (3м).</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT SECTION: CENTRAL VIEWPORT & OPTIONS -->
+            <main class="game-viewport-area">
+                
+                <!-- SCENE POSTER CONTAINER -->
+                <section class="scene-container">
+                    <div class="scene-frame">
+                        <img id="scene-image" src="assets/petro_ground.svg" alt="Петро на землі" class="scene-graphic">
+                        <div class="height-indicator">Рівень: <span id="current-height">3м</span></div>
+                    </div>
+                </section>
+
+                <!-- STORY & CHOICES INTERFACE -->
+                <section class="story-interface-card">
+                    <div class="card-inner">
+                        <h2 id="stage-title" class="stage-title">Заголовок завантажується...</h2>
+                        <p id="stage-text" class="stage-description">Текст історії завантажується...</p>
+                        
+                        <!-- CHOICES CONTAINER -->
+                        <div id="choices-container" class="choices-grid">
+                            <button class="choice-btn" data-choice="A">Вибір А</button>
+                            <button class="choice-btn" data-choice="B">Вибір B</button>
+                        </div>
+
+                        <!-- RESTART PANEL (hidden by default) -->
+                        <div id="restart-panel" class="restart-panel hidden">
+                            <button id="restart-btn" class="btn-restart">Почати спочатку 🔄</button>
+                            <p class="final-note">Чи зможете ви випробувати іншу долю Петра?</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- FOOTER INFO -->
+        <footer class="app-footer">
+            <p>© 2026 Творче Об'єднання «Людина-Гніздо». Усі голуби в безпеці. Валєра схвалює.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
